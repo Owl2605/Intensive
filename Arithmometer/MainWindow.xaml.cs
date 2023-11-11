@@ -23,6 +23,7 @@ namespace Arithmometer
         public MainWindow()
         {
             InitializeComponent();
+            button.Content = "Привет";
         }
     }
 }
