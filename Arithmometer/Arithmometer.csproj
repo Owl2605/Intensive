@@ -7,4 +7,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="12345 1.png" />
+    <None Remove="intens3 1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="12345 1.png" />
+    <Resource Include="intens3 1.png" />
+  </ItemGroup>
+
 </Project>
