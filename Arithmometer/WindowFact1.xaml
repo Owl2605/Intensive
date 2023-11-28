@@ -13,6 +13,11 @@
         <Image Margin="178,23,178,142" Source="/Image1.png" Stretch="Fill"/>
         <Label Content="" Margin="37,317,0,0" Width="736" FontFamily="Segoe UI Black" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Image Margin="125,306,125,20" Source="/Без имени-12.png" Stretch="Fill"/>
+        <Button Content="" HorizontalAlignment="Left" Height="55" Margin="746,0,0,0" VerticalAlignment="Top" Width="54" BorderBrush="#00000000" RenderTransformOrigin="0.556,0.437">
+            <Button.Background>
+                <ImageBrush ImageSource="/intens1 1.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
