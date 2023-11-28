@@ -1,0 +1,18 @@
+﻿<Window x:Class="Arithmometer.WindowFact1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Arithmometer"
+        mc:Ignorable="d"
+        Title="WindowFact1" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/12345.png"/>
+        </Grid.Background>
+        <Image Margin="178,23,178,142" Source="/Image1.png" Stretch="Fill"/>
+        <Label Content="" Margin="37,317,0,0" Width="736" FontFamily="Segoe UI Black" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Image Margin="125,306,125,20" Source="/Без имени-12.png" Stretch="Fill"/>
+
+    </Grid>
+</Window>

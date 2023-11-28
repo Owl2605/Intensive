@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="12345 1.png" />
+    <None Remove="12345.png" />
     <None Remove="intens1 1.png" />
     <None Remove="intens3 1.png" />
     <None Remove="intens4 1.png" />
@@ -23,6 +24,7 @@
 
   <ItemGroup>
     <Resource Include="12345 1.png" />
+    <Resource Include="12345.png" />
     <Resource Include="intens1 1.png" />
     <Resource Include="intens3 1.png" />
     <Resource Include="intens4 1.png" />
