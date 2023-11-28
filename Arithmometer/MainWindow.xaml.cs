@@ -25,17 +25,24 @@ namespace Arithmometer
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_3dmodel_Click(object sender, RoutedEventArgs e)
+        {
+            _3Dmodel _3Dmodel = new _3Dmodel();
+            this.Hide();
+            _3Dmodel.Show();
+        }
+
+        private void btn_facts_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void btn_mechanism_Click(object sender, RoutedEventArgs e)
         {
 
         }
