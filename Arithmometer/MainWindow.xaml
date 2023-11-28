@@ -10,22 +10,22 @@
         <Grid.Background>
             <ImageBrush ImageSource="/12345 1.png"/>
         </Grid.Background>
-        <Button x:Name="Exit" Content="" HorizontalAlignment="Left" Margin="738,10,0,0" VerticalAlignment="Top" Height="42" Width="36">
+        <Button x:Name="Exit" Content="" HorizontalAlignment="Left" Margin="738,10,0,0" VerticalAlignment="Top" Height="42" Width="36" Click="Exit_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/intens3 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="-288,0,0,0" VerticalAlignment="Center" Height="459" Width="841">
+        <Button x:Name="btn_3dmodel" Content="" HorizontalAlignment="Left" Margin="-288,0,0,0" VerticalAlignment="Center" Height="459" Width="841" Click="btn_3dmodel_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/psdintensiv1.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="459" Width="842" Click="Button_Click_2" RenderTransformOrigin="0.518,0.502">
+        <Button x:Name="btn_mechanism" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="459" Width="842"  RenderTransformOrigin="0.518,0.502" Click="btn_mechanism_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/psdintensiv2.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="243,-67,0,0" VerticalAlignment="Top" Height="463" Width="868" Click="Button_Click_1">
+        <Button x:Name="btn_facts" Content="" HorizontalAlignment="Left" Margin="243,-67,0,0" VerticalAlignment="Top" Height="463" Width="868" Click="btn_facts_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/psdintensiv4.png"/>
             </Button.Background>
