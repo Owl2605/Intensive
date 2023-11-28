@@ -5,16 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="IN3dModel" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
+        Title="IN3dModel" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" >
+    <Canvas>
+        <Canvas.Background>
             <ImageBrush ImageSource="/12345 1.png"/>
-        </Grid.Background>
-        <Button Content="" HorizontalAlignment="Left" Height="55" Margin="736,10,0,0" VerticalAlignment="Top" Width="54" BorderBrush="#00000000">
+        </Canvas.Background>
+        <Image Source="/zfsf_kopia.png" Height="701" Canvas.Left="405" Width="1222" Canvas.Top="182" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png"/>
+                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Image Margin="144,80,144,80" Source="/zfsf_kopia.png" Stretch="Fill"/>
-    </Grid>
+    </Canvas>
 </Window>

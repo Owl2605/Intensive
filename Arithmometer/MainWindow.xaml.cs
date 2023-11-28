@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -27,24 +28,31 @@ namespace Arithmometer
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void btn_3dmodel_Click(object sender, RoutedEventArgs e)
         {
             _3Dmodel _3Dmodel = new _3Dmodel();
-            this.Hide();
+            _3Dmodel.MW = this;
             _3Dmodel.Show();
+            this.Hide();
         }
 
         private void btn_facts_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowFact1 fact = new WindowFact1();
+            fact.MW = this;
+            fact.Show();
+            this.Hide();
         }
 
         private void btn_mechanism_Click(object sender, RoutedEventArgs e)
         {
-
+            IN3dModel mechanism = new IN3dModel();
+            mechanism.MW = this;
+            mechanism.Show();
+            this.Hide();
         }
     }
 }

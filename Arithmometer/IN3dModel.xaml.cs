@@ -23,5 +23,14 @@ namespace Arithmometer
         {
             InitializeComponent();
         }
+
+        MainWindow? mw;
+        public MainWindow? MW { get { return mw; } set { mw = value; } }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MW.Show();
+            this.Close();
+        }
     }
 }

@@ -5,19 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="WindowFact1" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
+        Title="WindowFact1" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Canvas>
+        <Canvas.Background>
             <ImageBrush ImageSource="/12345.png"/>
-        </Grid.Background>
-        <Image Margin="178,23,178,142" Source="/Image1.png" Stretch="Fill"/>
-        <Label Content="" Margin="37,317,0,0" Width="736" FontFamily="Segoe UI Black" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Image Margin="125,306,125,20" Source="/Без имени-12.png" Stretch="Fill"/>
-        <Button Content="" HorizontalAlignment="Left" Height="55" Margin="746,0,0,0" VerticalAlignment="Top" Width="54" BorderBrush="#00000000" RenderTransformOrigin="0.556,0.437">
+        </Canvas.Background>
+        <Image HorizontalAlignment="Left" Width="936" Source="/Image1.png" Canvas.Left="492" Canvas.Top="100" Height="588"/>
+        <Image HorizontalAlignment="Left" Width="1236" Source="/Без имени-12.png" Canvas.Left="342" Canvas.Top="721" Height="300"/>
+        <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png"/>
+                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 
-    </Grid>
+    </Canvas>
 </Window>

@@ -5,17 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="mainWindow">
-        <Grid.Background>
+        Title="MainWindow" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" >
+    <Canvas x:Name="mainWindow" Width="1920" Height="1080">
+        <Canvas.Background>
             <ImageBrush ImageSource="/12345 1.png"/>
-        </Grid.Background>
-        <Button x:Name="Exit" Content="" HorizontalAlignment="Left" Margin="738,10,0,0" VerticalAlignment="Top" Height="42" Width="36">
+        </Canvas.Background>
+        <Button x:Name="Exit" Content="" HorizontalAlignment="Center" Width="141" Click="Exit_Click" Height="126" VerticalAlignment="Center" Canvas.Left="1769" Canvas.Top="10">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
             <Button.Background>
                 <ImageBrush ImageSource="/intens3 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn_3dmodel" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="228" Width="228" Click="btn_3dmodel_Click" Margin="28,0,0,0" BorderBrush="#00000000">
+        <Button x:Name="btn_3dmodel" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="551" Width="534" Click="btn_3dmodel_Click" BorderBrush="#00000000" Canvas.Left="103" Canvas.Top="266">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
@@ -27,7 +34,7 @@
                 <ImageBrush ImageSource="/psdintensiv111.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn_mechanism" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="228" Width="228"  RenderTransformOrigin="0.518,0.502" Click="btn_mechanism_Click" Margin="292,0,0,0" BorderBrush="#00000000">
+        <Button x:Name="btn_mechanism" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="548" Width="552" Click="btn_mechanism_Click" BorderBrush="#00000000" Canvas.Left="681" Canvas.Top="263" RenderTransformOrigin="0.522,0.515">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
@@ -39,7 +46,7 @@
                 <ImageBrush ImageSource="/psdintensiv222.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn_facts" Content="" HorizontalAlignment="Left" Margin="543,0,0,0" VerticalAlignment="Center" Height="225" Width="228" Click="btn_facts_Click" BorderBrush="#00000000" Foreground="Black" >
+        <Button x:Name="btn_facts" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="548" Width="540" Click="btn_facts_Click" BorderBrush="#00000000" Foreground="Black" Canvas.Left="1277" Canvas.Top="269" >
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
@@ -51,5 +58,5 @@
                 <ImageBrush ImageSource="/psdintensiv333.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-    </Grid>
+    </Canvas>
 </Window>

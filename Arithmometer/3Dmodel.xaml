@@ -5,16 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="_3Dmodel" Height="450" Width="800">
-    <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="131,282,0,0" VerticalAlignment="Top"/>
-
-    <Grid Background="DimGray">
-        <Image Margin="155,72,113,72" Source="/intens4 1.png" Stretch="Fill"/>
-        <Button Content="" HorizontalAlignment="Left" Height="60" Margin="733,10,0,0" VerticalAlignment="Top" Width="57">
+        Title="_3Dmodel" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Canvas Background="DimGray">
+        <Image Source="/intens4 1.png" Height="756" Canvas.Left="412" Canvas.Top="188" Width="1184"/>
+        <Button x:Name="Back" Content="" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png"/>
+                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-    </Grid>
+    </Canvas>
 </Window>
