@@ -15,5 +15,20 @@
                 <ImageBrush ImageSource="/intens3 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="-288,0,0,0" VerticalAlignment="Center" Height="459" Width="841">
+            <Button.Background>
+                <ImageBrush ImageSource="/psdintensiv1.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="459" Width="842" Click="Button_Click_2" RenderTransformOrigin="0.518,0.502">
+            <Button.Background>
+                <ImageBrush ImageSource="/psdintensiv2.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="243,-67,0,0" VerticalAlignment="Top" Height="463" Width="868" Click="Button_Click_1">
+            <Button.Background>
+                <ImageBrush ImageSource="/psdintensiv4.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
