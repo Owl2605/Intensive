@@ -11,7 +11,10 @@
     <None Remove="12345 1.png" />
     <None Remove="intens3 1.png" />
     <None Remove="psdintensiv1.png" />
+    <None Remove="psdintensiv111.png" />
     <None Remove="psdintensiv2.png" />
+    <None Remove="psdintensiv222.png" />
+    <None Remove="psdintensiv333.png" />
     <None Remove="psdintensiv4.png" />
   </ItemGroup>
 
@@ -19,7 +22,10 @@
     <Resource Include="12345 1.png" />
     <Resource Include="intens3 1.png" />
     <Resource Include="psdintensiv1.png" />
+    <Resource Include="psdintensiv111.png" />
     <Resource Include="psdintensiv2.png" />
+    <Resource Include="psdintensiv222.png" />
+    <Resource Include="psdintensiv333.png" />
     <Resource Include="psdintensiv4.png" />
   </ItemGroup>
 
