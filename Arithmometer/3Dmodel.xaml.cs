@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Arithmometer
 {
@@ -22,7 +23,7 @@ namespace Arithmometer
     public partial class _3Dmodel : Window
     {
         //Path to the model file
-        private const string MODEL_PATH = "C:\\Users\\mrmal\\Desktop\\3dmodel\\arith.obj";
+        private string MODEL_PATH = (new Uri(Directory.GetCurrentDirectory() + @"\..\..\..\arith.obj")).ToString();
 
         public _3Dmodel()
         {
