@@ -23,7 +23,7 @@ namespace Arithmometer
     public partial class _3Dmodel : Window
     {
         //Path to the model file
-        private string MODEL_PATH = (new Uri(Directory.GetCurrentDirectory() + @"\..\..\..\arith.obj")).ToString();
+        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\arith.obj").ToString();
 
         public _3Dmodel()
         {
