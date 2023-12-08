@@ -34,6 +34,7 @@ namespace Arithmometer
         private void btn_3dmodel_Click(object sender, RoutedEventArgs e)
         {
             _3Dmodel _3Dmodel = new _3Dmodel();
+            _3Dmodel.MW = this;
             _3Dmodel.Show();
             this.Hide();
         }

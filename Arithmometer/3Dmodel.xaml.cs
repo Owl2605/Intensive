@@ -14,6 +14,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Reflection;
 
 namespace Arithmometer
 {
@@ -25,12 +26,26 @@ namespace Arithmometer
         //Path to the model file
         private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\arith.obj").ToString();
 
+        MainWindow? mw;
+        public MainWindow? MW { get { return mw; } set { mw = value; } }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MW.Show();
+            this.Close();
+        }
         public _3Dmodel()
         {
             InitializeComponent();
 
             ModelVisual3D device3D = new ModelVisual3D();
-            device3D.Content = Display3d(MODEL_PATH);
+            Model3D model3D = Display3d(MODEL_PATH);
+            ScaleTransform3D _zScaleTransform = new ScaleTransform3D();
+            model3D.Transform = _zScaleTransform;
+            Rect3D bounds = model3D.Bounds;
+            Point3D lookAtPoint = new Point3D(bounds.X + bounds.SizeX / 2, bounds.Y + bounds.SizeY / 2, bounds.Z + bounds.SizeZ / 2);
+            _zScaleTransform.CenterZ = lookAtPoint.Z;
+            device3D.Content = model3D;
             // Add to view port
             viewPort3d.Children.Add(device3D);
         }
