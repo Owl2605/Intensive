@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="12345 1.png" />
     <None Remove="12345.png" />
+    <None Remove="arith.obj" />
     <None Remove="Image1.png" />
     <None Remove="intens1 1.png" />
     <None Remove="intens3 1.png" />
@@ -22,6 +23,10 @@
     <None Remove="psdintensiv4.png" />
     <None Remove="zfsf_kopia.png" />
     <None Remove="Без имени-12.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="arith.obj" />
   </ItemGroup>
 
   <ItemGroup>
