@@ -15,25 +15,21 @@ using System.Windows.Shapes;
 namespace Arithmometer
 {
     /// <summary>
-    /// Логика взаимодействия для WindowFact1.xaml
+    /// Логика взаимодействия для WindowFact2.xaml
     /// </summary>
-    public partial class WindowFact1 : Window
+    public partial class WindowFact2 : Window
     {
-        public WindowFact1()
+        public WindowFact2()
         {
             InitializeComponent();
         }
 
-        MainWindow? mw;
-        public MainWindow? MW { get { return mw; } set { mw = value; } }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MW.Show();
-            this.Close();
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
 
         }

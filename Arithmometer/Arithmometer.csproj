@@ -14,6 +14,7 @@
     <None Remove="intens1 1.png" />
     <None Remove="intens3 1.png" />
     <None Remove="intens4 1.png" />
+    <None Remove="PNGSTRELK.png" />
     <None Remove="psdintensiv1.png" />
     <None Remove="psdintensiv111.png" />
     <None Remove="psdintensiv2.png" />
@@ -21,7 +22,14 @@
     <None Remove="psdintensiv333.png" />
     <None Remove="psdintensiv4.png" />
     <None Remove="zfsf_kopia.png" />
+    <None Remove="zvz.png" />
+    <None Remove="ZZZ.png" />
     <None Remove="Без имени-12.png" />
+    <None Remove="Без имени-4.png" />
+    <None Remove="Без имени-5.png" />
+    <None Remove="Без имени-6.png" />
+    <None Remove="Без имени-78.png" />
+    <None Remove="Рисунок1 копия.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +43,7 @@
     <Resource Include="intens1 1.png" />
     <Resource Include="intens3 1.png" />
     <Resource Include="intens4 1.png" />
+    <Resource Include="PNGSTRELK.png" />
     <Resource Include="psdintensiv1.png" />
     <Resource Include="psdintensiv111.png" />
     <Resource Include="psdintensiv2.png" />
@@ -42,7 +51,14 @@
     <Resource Include="psdintensiv333.png" />
     <Resource Include="psdintensiv4.png" />
     <Resource Include="zfsf_kopia.png" />
+    <Resource Include="zvz.png" />
+    <Resource Include="ZZZ.png" />
     <Resource Include="Без имени-12.png" />
+    <Resource Include="Без имени-4.png" />
+    <Resource Include="Без имени-5.png" />
+    <Resource Include="Без имени-6.png" />
+    <Resource Include="Без имени-78.png" />
+    <Resource Include="Рисунок1 копия.png" />
   </ItemGroup>
 	
 

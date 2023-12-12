@@ -1,28 +1,18 @@
-﻿<Window x:Class="Arithmometer.WindowFact1"
+﻿<Window x:Class="Arithmometer.WindowFact2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="WindowFact1" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Canvas>
-        <Canvas.Background>
+        Title="WindowFact2" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
             <ImageBrush ImageSource="/12345.png"/>
-        </Canvas.Background>
-        <Image HorizontalAlignment="Left" Width="1048" Source="/Рисунок1 копия.png" Canvas.Left="436" Canvas.Top="33" Height="698" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image HorizontalAlignment="Center" Width="1278" Source="/Без имени-78.png" Canvas.Left="321" Canvas.Top="777" Height="247" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+        </Grid.Background>
+        <Image Source="/ZZZ.png" RenderTransformOrigin="0.5,0.5" Margin="180,7,180,134">
             <Image.OpacityMask>
-                <ImageBrush ImageSource="/Без имени-78.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/ZZZ.png"/>
             </Image.OpacityMask>
             <Image.RenderTransform>
                 <TransformGroup>
@@ -33,7 +23,17 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Image Source="/Без имени-5.png" RenderTransformOrigin="0.5,0.5" Margin="108,280,108,12">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="Back_Копировать" Content="" BorderBrush="#00000000" Click="Back_Click" Margin="724,0,0,362">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="{TemplateBinding Background}">
@@ -45,19 +45,7 @@
                 <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Back_Копировать" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Canvas.Left="1723" Canvas.Top="532" Height="120" Width="205" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859">
+        <Button Content="" Click="Button_Click" BorderBrush="#00000000" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Margin="735,217,11,162">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="{TemplateBinding Background}">
@@ -69,6 +57,26 @@
                 <ImageBrush ImageSource="/PNGSTRELK.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button Content="" Click="Button_Click" BorderBrush="#00000000" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Margin="5,217,735,162">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/PNGSTRELK.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
-    </Canvas>
+    </Grid>
 </Window>
