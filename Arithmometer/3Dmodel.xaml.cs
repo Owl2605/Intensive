@@ -21,13 +21,11 @@ using System.Threading;
 
 namespace Arithmometer
 {
-    /// <summary>
-    /// Логика взаимодействия для _3Dmodel.xaml
-    /// </summary>
+
     public partial class _3Dmodel : Window
     {
         //Path to the model file
-        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\arith.obj").ToString();
+        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\test1.obj").ToString();
 
         MainWindow? mw;
         public MainWindow? MW { get { return mw; } set { mw = value; } }
@@ -43,21 +41,10 @@ namespace Arithmometer
             Start();
             ModelVisual3D device3D = new ModelVisual3D();
             Model3D model3D = Display3d(MODEL_PATH);
-            ScaleTransform3D _zScaleTransform = new ScaleTransform3D();
-            model3D.Transform = _zScaleTransform;
-            Rect3D bounds = model3D.Bounds;
-            Point3D lookAtPoint = new Point3D(bounds.X + bounds.SizeX / 2, bounds.Y + bounds.SizeY / 2, bounds.Z + bounds.SizeZ / 2);
-            _zScaleTransform.CenterZ = lookAtPoint.Z;
             device3D.Content = model3D;
-            // Add to view port
             viewPort3d.Children.Add(device3D);
         }
 
-        /// <summary>
-        /// Display 3D Model
-        /// </summary>
-        /// <param name="model">Path to the Model file</param>
-        /// <returns>3D Model Content</returns>
         private Model3D Display3d(string model)
         {
             Model3D device = null;
@@ -69,7 +56,7 @@ namespace Arithmometer
 
                 //Import 3D model file
                 ModelImporter import = new ModelImporter();
-
+                Console.WriteLine(model);
                 //Load the 3D model file
                 device = import.Load(model);
             }
