@@ -63,6 +63,8 @@ namespace Arithmometer
                 //Adding a gesture here
                 viewPort3d.RotateGesture = new MouseGesture(MouseAction.LeftClick);
                 viewPort3d.Camera.UpDirection = new Vector3D(0, 1, 0);
+                viewPort3d.Camera.LookDirection = new Vector3D(-1.4, -60, -60);
+                viewPort3d.Camera.Position = new Point3D(40, 86, 20);
 
                 //Import 3D model file
                 ModelImporter import = new ModelImporter();
