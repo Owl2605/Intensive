@@ -34,6 +34,9 @@ namespace Arithmometer
         {
             MW.Show();
             this.Close();
+            server.Stop();
+            thread.Interrupt();
+            thread.Join();
         }
         public _3Dmodel()
         {
@@ -89,9 +92,9 @@ namespace Arithmometer
                 server = new TcpListener(IPAddress.Any, connectionPort);
                 server.Start();
                 Console.WriteLine("Сервер готов к получению клиента");
+                running = true;
                 client = server.AcceptTcpClient();
                 Console.WriteLine("Клиент подключился к серверу");
-                running = true;
                 //NetworkStream nwStream = client.GetStream();
                 //byte[] buffer = new byte[64];
                 //int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
