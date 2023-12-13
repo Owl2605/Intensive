@@ -25,7 +25,7 @@ namespace Arithmometer
     public partial class _3Dmodel : Window
     {
         //Path to the model file
-        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\test1.obj").ToString();
+        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\Arith.obj").ToString();
 
         MainWindow? mw;
         public MainWindow? MW { get { return mw; } set { mw = value; } }

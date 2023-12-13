@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="WindowFact2" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
+        Title="WindowFact2" Height="1080" Width="1920" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Canvas>
+        <Canvas.Background>
             <ImageBrush ImageSource="/12345.png"/>
-        </Grid.Background>
-        <Image Source="/ZZZ.png" RenderTransformOrigin="0.5,0.5" Margin="180,7,180,134">
+        </Canvas.Background>
+        <Image Source="/ZZZ.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="330" Canvas.Top="90" HorizontalAlignment="Left" VerticalAlignment="Top" Height="748" Width="1262">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/ZZZ.png"/>
             </Image.OpacityMask>
@@ -23,7 +23,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Source="/Без имени-5.png" RenderTransformOrigin="0.5,0.5" Margin="108,280,108,12">
+        <Image Source="/Без имени-5.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="316" Canvas.Top="806" HorizontalAlignment="Center" VerticalAlignment="Center" Height="274" Width="1290">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -33,31 +33,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="Back_Копировать" Content="" BorderBrush="#00000000" Click="Back_Click" Margin="724,0,0,362">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Click="Button_Click" BorderBrush="#00000000" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Margin="735,217,11,162">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Background>
-                <ImageBrush ImageSource="/PNGSTRELK.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Click="Button_Click" BorderBrush="#00000000" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Margin="5,217,735,162">
+        <Button x:Name="Previous" Content="" Canvas.Left="15" Canvas.Top="532" Height="120" Width="142" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Click="Previous_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="{TemplateBinding Background}">
@@ -77,6 +53,30 @@
                 <ImageBrush ImageSource="/PNGSTRELK.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Next" Content="" Canvas.Left="1723" Canvas.Top="532" Height="120" Width="205" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Click="Next_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/PNGSTRELK.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
-    </Grid>
+    </Canvas>
 </Window>

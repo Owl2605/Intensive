@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="WindowFact1" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="WindowFact1" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
     <Canvas>
         <Canvas.Background>
             <ImageBrush ImageSource="/12345.png"/>
@@ -45,19 +45,7 @@
                 <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Back_Копировать" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Canvas.Left="1723" Canvas.Top="532" Height="120" Width="205" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859">
+        <Button x:Name="Next" Content="" Canvas.Left="1723" Canvas.Top="532" Height="120" Width="205" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Click="Next_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid Background="{TemplateBinding Background}">

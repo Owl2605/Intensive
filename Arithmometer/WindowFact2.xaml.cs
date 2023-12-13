@@ -23,15 +23,29 @@ namespace Arithmometer
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        MainWindow? mw;
+        public MainWindow? MW { get { return mw; } set { mw = value; } }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            MW.Show();
+            this.Close();
+        }
 
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            WindowFact3 fact3 = new WindowFact3();
+            fact3.MW = this.MW;
+            fact3.Show();
+            this.Close();
+        }
+
+        private void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            WindowFact1 fact1 = new WindowFact1();
+            fact1.MW = this.MW;
+            fact1.Show();
+            this.Close();
         }
     }
 }

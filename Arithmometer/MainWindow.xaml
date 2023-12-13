@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmometer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" Topmost="True" WindowStyle="None" >
     <Canvas x:Name="mainWindow" Width="1920" Margin="0,0,0,0">
         <Canvas.Background>
             <ImageBrush ImageSource="/12345 1.png"/>

@@ -17,21 +17,29 @@ namespace Arithmometer
     /// <summary>
     /// Логика взаимодействия для WindowFact3.xaml
     /// </summary>
+    
     public partial class WindowFact3 : Window
     {
+
+        MainWindow? mw;
+        public MainWindow? MW { get { return mw; } set { mw = value; } }
         public WindowFact3()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            MW.Show();
+            this.Close();
+        }
 
+        private void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            WindowFact2 fact2 = new WindowFact2();
+            fact2.MW = this.MW;
+            fact2.Show();
+            this.Close();
         }
     }
 }

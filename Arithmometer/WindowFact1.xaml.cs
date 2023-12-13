@@ -27,15 +27,19 @@ namespace Arithmometer
         MainWindow? mw;
         public MainWindow? MW { get { return mw; } set { mw = value; } }
 
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             MW.Show();
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Next_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowFact2 fact2 = new WindowFact2();
+            fact2.MW = this.MW;
+            fact2.Show();
+            this.Close();
         }
     }
 }
