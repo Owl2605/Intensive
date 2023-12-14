@@ -44,7 +44,7 @@ namespace Arithmometer
         private string BOGIE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\bogie.obj").ToString();
 
         private string LEVER9_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString();
-        string[] leversSTR = new string[] 
+        string[] leversSTR = new string[]
         {
         (Directory.GetCurrentDirectory() + @"\..\..\..\lever9.obj").ToString(),
         (Directory.GetCurrentDirectory() + @"\..\..\..\lever8.obj").ToString(),
@@ -56,7 +56,7 @@ namespace Arithmometer
         (Directory.GetCurrentDirectory() + @"\..\..\..\lever2.obj").ToString(),
         (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString()
         };
-        
+
         private string RESULT1_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
         private string RESULT2_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
         private string RESULT3_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
@@ -103,7 +103,7 @@ namespace Arithmometer
             client.Close();
             server.Stop();
             thread.Interrupt();
-            thread.Join(); 
+            thread.Join();
             MW.Show();
             this.Close();
         }
@@ -116,7 +116,7 @@ namespace Arithmometer
         {
             InitializeComponent();
             Start();
-            
+
             Add3DModels();
             BogLRX(-8);
             Rect3D bounds = handelModel3D.Bounds;
@@ -127,12 +127,12 @@ namespace Arithmometer
             RCloAtPoint = new Point3D(bounds.X + bounds.SizeX / 2, bounds.Y + bounds.SizeY / 2, bounds.Z + bounds.SizeZ / 2);
             results = new Label[] { LB1, LB2, LB3, LB4, LB5, LB6, LB7, LB8, LB9, LB10, LB11, LB12, LB13 };
             iterations = new Label[] { IT1, IT2, IT3, IT4, IT5, IT6, IT7, IT8 };
-            for(int i = 0; i < iterationsValue.Length; i++)
+            for (int i = 0; i < iterationsValue.Length; i++)
             {
                 iterationsValue[i] = 0;
             }
         }
-        
+
         void BogLRX(double x)
         {
             LRX(bogie3D, x);
@@ -164,11 +164,8 @@ namespace Arithmometer
             device.Content.Transform = new MatrixTransform3D(matrix);
         }
 
-            ModelVisual3D device3D = new ModelVisual3D();
-            Model3D model3D = Display3d(MODEL_PATH);
-            device3D.Content = model3D;
-            viewPort3d.Children.Add(device3D);
-        }
+
+
         bool stopServer = false;
         private Model3D Display3d(string model)
         {
@@ -242,7 +239,7 @@ namespace Arithmometer
             }
 
         }
-        void LR (ModelVisual3D device, double z, double y)
+        void LR(ModelVisual3D device, double z, double y)
         {
             Matrix3D matrix;
             matrix = device.Content.Transform.Value;
@@ -281,7 +278,7 @@ namespace Arithmometer
         int countOfRound = 0;
         int Result = 0;
         long number, result;
-        
+
 
         async void doIt(string str)
         {
@@ -410,14 +407,14 @@ namespace Arithmometer
                 }
             }
         }
-        
+
         void HandleRot(int angle)
         {
-                Vector3D axis = new Vector3D(1, 0, 0);
-                Matrix3D matrix = handle3D.Content.Transform.Value;
-                matrix.RotateAt(new Quaternion(axis, angle), loAtPoint);
-                handle3D.Content.Transform = new MatrixTransform3D(matrix);
-             
+            Vector3D axis = new Vector3D(1, 0, 0);
+            Matrix3D matrix = handle3D.Content.Transform.Value;
+            matrix.RotateAt(new Quaternion(axis, angle), loAtPoint);
+            handle3D.Content.Transform = new MatrixTransform3D(matrix);
+
         }
         async void RoundUp()
         {
@@ -440,14 +437,14 @@ namespace Arithmometer
         //private async void Button_Click(object sender, RoutedEventArgs e)
         //{
 
-            //t += 2.3;
-            //BogLRX(t);
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    string str = $"{9 - i}{i + 1}";
-            //    doIt(str);
-            //}
-            //MyRotationX(levers3D[0]);//, 10, lookAtPointLever);
+        //t += 2.3;
+        //BogLRX(t);
+        //for (int i = 0; i < 9; i++)
+        //{
+        //    string str = $"{9 - i}{i + 1}";
+        //    doIt(str);
+        //}
+        //MyRotationX(levers3D[0]);//, 10, lookAtPointLever);
         //}
 
 
