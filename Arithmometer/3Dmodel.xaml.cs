@@ -131,7 +131,6 @@ namespace Arithmometer
             {
                 iterationsValue[i] = 0;
             }
-
         }
         
         void BogLRX(double x)
