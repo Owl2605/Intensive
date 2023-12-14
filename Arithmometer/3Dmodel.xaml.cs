@@ -285,130 +285,133 @@ namespace Arithmometer
 
         async void doIt(string str)
         {
-            if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
-                                 //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
+            await this.Dispatcher.Invoke(async () =>
             {
-                int tempL = int.Parse(str.Substring(0, 1)) - 1;
-                int tempN = int.Parse(str.Substring(1, 1));
-                levers[tempL] = tempN;
-                LeversRotation(levers3D[tempL], tempN);
-            }
-            else if (str == "Прокрутили ручку вперед") // выполнить код для вращения ручки вперед
-            {
-                if (bogie == 5 && levers[8] != 0 || //рычажки с выбранными числами не находятся над ячейками
-                bogie == 6 && levers[8] != 0 && levers[7] != 0 ||
-                bogie == 7 && levers[8] != 0 && levers[7] != 0 && levers[6] != 0 ||
-                iterations[bogie].Content.ToString() == "9")
+                if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
+                                     //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
                 {
-                    MessageBox.Show("Звонок!", "Ошибка!");
-                    return;
-
+                    int tempL = int.Parse(str.Substring(0, 1)) - 1;
+                    int tempN = int.Parse(str.Substring(1, 1));
+                    levers[tempL] = tempN;
+                    LeversRotation(levers3D[tempL], tempN);
                 }
-                RoundUp();
-                number = 0;
-                for (int i = 0; i < 9; i++) //собираем данные с рычажков в одно число
+                else if (str == "Прокрутили ручку вперед") // выполнить код для вращения ручки вперед
                 {
-                    number += levers[i] * (long)Math.Pow(10, i);
-                }
-                result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
-                long temp = result;
-                for (int i = 0; i < 13; i++) //запись результата в ячейки
-                {
-                    if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
+                    if (bogie == 5 && levers[8] != 0 || //рычажки с выбранными числами не находятся над ячейками
+                    bogie == 6 && levers[8] != 0 && levers[7] != 0 ||
+                    bogie == 7 && levers[8] != 0 && levers[7] != 0 && levers[6] != 0 ||
+                    iterations[bogie].Content.ToString() == "9")
                     {
                         MessageBox.Show("Звонок!", "Ошибка!");
-                        break;
-                    }
-                    results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
-                }
-                iterationsValue[bogie] += 1;
-                //string tmp = iterations[bogie].Content.ToString();
-                iterations[bogie].Content = Math.Abs(iterationsValue[bogie]);
-            }
-            else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
-            {
-                if (bogie == 5 && levers[8] != 0 || //рычажки с выбранными числами не находятся над ячейками
-                bogie == 6 && levers[8] != 0 && levers[7] != 0 ||
-                bogie == 7 && levers[8] != 0 && levers[7] != 0 && levers[6] != 0 ||
-                iterations[bogie].Content.ToString() == "9")
-                {
-                    MessageBox.Show("Звонок!", "Ошибка!");
-                    return;
+                        return;
 
+                    }
+                    RoundUp();
+                    number = 0;
+                    for (int i = 0; i < 9; i++) //собираем данные с рычажков в одно число
+                    {
+                        number += levers[i] * (long)Math.Pow(10, i);
+                    }
+                    result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
+                    long temp = result;
+                    for (int i = 0; i < 13; i++) //запись результата в ячейки
+                    {
+                        if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
+                        {
+                            MessageBox.Show("Звонок!", "Ошибка!");
+                            break;
+                        }
+                        results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
+                    }
+                    iterationsValue[bogie] += 1;
+                    //string tmp = iterations[bogie].Content.ToString();
+                    iterations[bogie].Content = Math.Abs(iterationsValue[bogie]);
                 }
-                RoundDown();
-                number = 0;
-                for (int i = 0; i < 9; i++) //собираем данные с рычажков в одно число
+                else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
                 {
-                    number += levers[i] * (long)Math.Pow(10, i);
-                }
-                if (result - (number * (int)Math.Pow(10, bogie)) < 0) //проверка на отрицательное число
-                {
-                    MessageBox.Show("Звонок!", "Ошибка!");
-                    return;
-                }
-                result -= (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
-                long temp = result;
-                for (int i = 0; i < 13; i++) //запись результата в ячейки
-                {
-                    if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
+                    if (bogie == 5 && levers[8] != 0 || //рычажки с выбранными числами не находятся над ячейками
+                    bogie == 6 && levers[8] != 0 && levers[7] != 0 ||
+                    bogie == 7 && levers[8] != 0 && levers[7] != 0 && levers[6] != 0 ||
+                    iterations[bogie].Content.ToString() == "9")
                     {
                         MessageBox.Show("Звонок!", "Ошибка!");
-                        break;
+                        return;
+
                     }
-                    results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
+                    RoundDown();
+                    number = 0;
+                    for (int i = 0; i < 9; i++) //собираем данные с рычажков в одно число
+                    {
+                        number += levers[i] * (long)Math.Pow(10, i);
+                    }
+                    if (result - (number * (int)Math.Pow(10, bogie)) < 0) //проверка на отрицательное число
+                    {
+                        MessageBox.Show("Звонок!", "Ошибка!");
+                        return;
+                    }
+                    result -= (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
+                    long temp = result;
+                    for (int i = 0; i < 13; i++) //запись результата в ячейки
+                    {
+                        if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
+                        {
+                            MessageBox.Show("Звонок!", "Ошибка!");
+                            break;
+                        }
+                        results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
+                    }
+                    iterationsValue[bogie] -= 1;
+                    //string tmp = iterations[bogie].Content.ToString();
+                    iterations[bogie].Content = Math.Abs(iterationsValue[bogie]);
                 }
-                iterationsValue[bogie] -= 1;
-                //string tmp = iterations[bogie].Content.ToString();
-                iterations[bogie].Content = Math.Abs(iterationsValue[bogie]);
-            }
-            else if (str.Length == 3) //выставить каретку на значение str[2]
-            {
-                bogie = int.Parse(str.Substring(0, 2));
-                switch (bogie)
+                else if (str.Length == 3) //выставить каретку на значение str[2]
                 {
-                    case 1: BogLRX(-8); break;
-                    case 2: BogLRX(-6); break;
-                    case 3: BogLRX(-4); break;
-                    case 4: BogLRX(-2); break;
-                    case 5: BogLRX(0); break;
-                    case 6: BogLRX(2); break;
-                    case 7: BogLRX(4); break;
-                    case 8: BogLRX(6); break;
+                    bogie = (int)str[2];
+                    switch (bogie)
+                    {
+                        case 1: BogLRX(-8); break;
+                        case 2: BogLRX(-6); break;
+                        case 3: BogLRX(-4); break;
+                        case 4: BogLRX(-2); break;
+                        case 5: BogLRX(0); break;
+                        case 6: BogLRX(2); break;
+                        case 7: BogLRX(4); break;
+                        case 8: BogLRX(6); break;
+                    }
                 }
-            }
-            else if (str == "сбросил результаты") //сбросить результаты
-            {
-                for (int i = 0; i < results.Length; i++)
+                else if (str == "сбросил результаты") //сбросить результаты
                 {
-                    results[i].Content = 0;
-                    result = 0;
+                    for (int i = 0; i < results.Length; i++)
+                    {
+                        results[i].Content = 0;
+                        result = 0;
+                    }
+                    for (int j = 0; j < 18; j++)
+                    {
+                        Vector3D axis = new Vector3D(1, 0, 0);
+                        Matrix3D matrix = rc3D.Content.Transform.Value;
+                        matrix.RotateAt(new Quaternion(axis, -20), RCloAtPoint);
+                        rc3D.Content.Transform = new MatrixTransform3D(matrix);
+                        await Task.Delay(75);
+                    }
                 }
-                for (int j = 0; j < 18; j++)
+                else if (str == "сбросил обороты") //сбросил обороты
                 {
-                    Vector3D axis = new Vector3D(1, 0, 0);
-                    Matrix3D matrix = rc3D.Content.Transform.Value;
-                    matrix.RotateAt(new Quaternion(axis, -20), RCloAtPoint);
-                    rc3D.Content.Transform = new MatrixTransform3D(matrix);
-                    await Task.Delay(75);
+                    for (int i = 0; i < iterations.Length; i++)
+                    {
+                        iterations[i].Content = 0;
+                        iterationsValue[i] = 0;
+                    }
+                    for (int j = 0; j < 18; j++)
+                    {
+                        Vector3D axis = new Vector3D(1, 0, 0);
+                        Matrix3D matrix = lc3D.Content.Transform.Value;
+                        matrix.RotateAt(new Quaternion(axis, -20), LCloAtPoint);
+                        lc3D.Content.Transform = new MatrixTransform3D(matrix);
+                        await Task.Delay(75);
+                    }
                 }
-            }
-            else if (str == "сбросил обороты") //сбросил обороты
-            {
-                for (int i = 0; i < iterations.Length; i++)
-                {
-                    iterations[i].Content = 0;
-                    iterationsValue[i] = 0;
-                }
-                for (int j = 0; j < 18; j++)
-                {
-                    Vector3D axis = new Vector3D(1, 0, 0);
-                    Matrix3D matrix = lc3D.Content.Transform.Value;
-                    matrix.RotateAt(new Quaternion(axis, -20), LCloAtPoint);
-                    lc3D.Content.Transform = new MatrixTransform3D(matrix);
-                    await Task.Delay(75);
-                }
-            }
+            });
         }
 
         void HandleRot(int angle)
@@ -435,7 +438,6 @@ namespace Arithmometer
                 await Task.Delay(75);
             }
         }
-    
 
         //double t = -8;
         //private async void Button_Click(object sender, RoutedEventArgs e)
