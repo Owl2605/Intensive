@@ -132,11 +132,6 @@ namespace Arithmometer
                 iterationsValue[i] = 0;
             }
 
-
-            //ModelVisual3D device3D = new ModelVisual3D();
-            //Model3D model3D = Display3d(MODEL_PATH);
-            //device3D.Content = model3D;
-            //viewPort3d.Children.Add(device3D);
         }
         
         void BogLRX(double x)
