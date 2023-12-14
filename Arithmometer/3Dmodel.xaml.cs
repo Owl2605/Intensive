@@ -31,12 +31,13 @@ namespace Arithmometer
         public MainWindow? MW { get { return mw; } set { mw = value; } }
 
         private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            MW.Show();
-            this.Close();
+        {   
+            client.Close();
             server.Stop();
             thread.Interrupt();
-            thread.Join();
+            thread.Join(); 
+            MW.Show();
+            this.Close();
         }
         public _3Dmodel()
         {
@@ -47,7 +48,7 @@ namespace Arithmometer
             device3D.Content = model3D;
             viewPort3d.Children.Add(device3D);
         }
-
+        bool stopServer = false;
         private Model3D Display3d(string model)
         {
             Model3D device = null;
@@ -118,84 +119,92 @@ namespace Arithmometer
                 Console.WriteLine(dataReceived);
                 doIt(dataReceived);
             }
-            //string s = "true";
-            //byte[] bytes = Encoding.UTF8.GetBytes(s);
-            //Console.WriteLine("true");
-            //nwStream.Write(bytes, 0, bytes.Length);
+            /*if (stopServer)
+            {
+                string s = "stop";
+                byte[] bytes = Encoding.UTF8.GetBytes(s);
+                Console.WriteLine("true");
+                nwStream.Write(bytes, 0, bytes.Length);
+                Console.WriteLine("отправил стоп");
+            }*/
 
         }
-        int numberOfLever = 1;
-        int numberOfSlide = 1;
+        char numberOfLever = '0';
+        char numberOfSlide = '0';
         int countOfRound = 0;
         int Result = 0;
         void doIt(string str)
         {
-            if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
-                                 //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
+            this.Dispatcher.Invoke(() =>
             {
-                //тут должен быть код, связанный с выставлением цифр на рычажках 
-                //на рычажке str[0] выставить значение str[1]
-                numberOfLever = str[0];
-                switch (numberOfLever)
+                Console.WriteLine(str + " длина" + str.Length);
+                if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
+                                     //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
                 {
-                    case 1: label1.Content = str[1]; break;
-                    case 2: label2.Content = str[1]; break;
-                    case 3: label3.Content = str[1]; break;
-                    case 4: label4.Content = str[1]; break;
-                    case 5: label5.Content = str[1]; break;
-                    case 6: label6.Content = str[1]; break;
-                    case 7: label7.Content = str[1]; break;
-                    case 8: label8.Content = str[1]; break;
-                    case 9: label9.Content = str[1]; break;
+                    //тут должен быть код, связанный с выставлением цифр на рычажках 
+                    //на рычажке str[0] выставить значение str[1]
+                    numberOfLever = str[0];
+                    switch (numberOfLever)
+                    {
+                        case '1': label1.Content = str[1]; break;
+                        case '2': label2.Content = str[1]; break;
+                        case '3': label3.Content = str[1]; break;
+                        case '4': label4.Content = str[1]; break;
+                        case '5': label5.Content = str[1]; break;
+                        case '6': label6.Content = str[1]; break;
+                        case '7': label7.Content = str[1]; break;
+                        case '8': label8.Content = str[1]; break;
+                        case '9': label9.Content = str[1]; break;
+                    }
                 }
-            }
-            else if (str == "Прокрутили ручку вперед") // выполнить код для вращения ручки вперед
-            {
-                countOfRound += 1;
-                labelRounds.Content = countOfRound;
-            }            
-            else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
-            {
-                countOfRound += 1;
-                labelRounds.Content = countOfRound;
-            }
-            else if (str.Length == 3) //выставить каретку на значение str[2]
-            {
-                numberOfSlide = str[2];
-                clearLabel();
-                switch (numberOfSlide)
+                else if (str == "Прокрутили ручку вперед") // выполнить код для вращения ручки вперед
                 {
-                    case 1: label11.Content = 1; break;
-                    case 2: label21.Content = 1; break;
-                    case 3: label31.Content = 1; break;
-                    case 4: label41.Content = 1; break;
-                    case 5: label51.Content = 1; break;
-                    case 6: label61.Content = 1; break;
-                    case 7: label71.Content = 1; break;
-                    case 8: label81.Content = 1; break;
-                    case 9: label91.Content = 1; break;
+                    countOfRound += 1;
+                    labelRounds.Content = countOfRound;
                 }
-            }
-            else if (str == "сбросил результаты") //сбросить результаты
-            {
-                labelResult.Content = string.Empty;
-            }
-            else if (str == "сбросил обороты") //сбросил обороты
-            {
-                labelRounds.Content = string.Empty;
-            }
-            void clearLabel()
-            {
-                label11.Content = string.Empty;
-                label21.Content = string.Empty;
-                label31.Content = string.Empty;
-                label41.Content = string.Empty;
-                label51.Content = string.Empty;
-                label61.Content = string.Empty;
-                label71.Content = string.Empty;
-                label81.Content = string.Empty;
-                label91.Content = string.Empty;
-            }
+                else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
+                {
+                    countOfRound += 1;
+                    labelRounds.Content = countOfRound;
+                }
+                else if (str.Length == 3) //выставить каретку на значение str[2]
+                {
+                    numberOfSlide = str[2];
+                    clearLabel();
+                    switch (numberOfSlide)
+                    {
+                        case '1': label11.Content = 1; break;
+                        case '2': label21.Content = 1; break;
+                        case '3': label31.Content = 1; break;
+                        case '4': label41.Content = 1; break;
+                        case '5': label51.Content = 1; break;
+                        case '6': label61.Content = 1; break;
+                        case '7': label71.Content = 1; break;
+                        case '8': label81.Content = 1; break;
+                        case '9': label91.Content = 1; break;
+                    }
+                }
+                else if (str == "сбросил результаты") //сбросить результаты
+                {
+                    labelResult.Content = "0";
+                }
+                else if (str == "сбросил обороты") //сбросил обороты
+                {
+                    labelRounds.Content = "0";
+                }
+                void clearLabel()
+                {
+                    label11.Content = "0";
+                    label21.Content = "0";
+                    label31.Content = "0";
+                    label41.Content = "0";
+                    label51.Content = "0";
+                    label61.Content = "0";
+                    label71.Content = "0";
+                    label81.Content = "0";
+                    label91.Content = "0";
+                }
+            });
         }
 
     }

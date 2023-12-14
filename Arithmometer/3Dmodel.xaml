@@ -24,8 +24,8 @@
         <Label x:Name="label5" Content="0" Canvas.Left="274" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label x:Name="label6" Content="0" Canvas.Left="317" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label x:Name="label7" Content="0" Canvas.Left="360" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label x:Name="label8" Content="0" Canvas.Left="446" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label x:Name="label9" Content="0" Canvas.Left="403" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="label8" Content="0" Canvas.Left="403" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="label9" Content="0" Canvas.Left="446" Canvas.Top="196" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="Положение каретки" Canvas.Left="103" Canvas.Top="292" RenderTransformOrigin="-3.369,-3.749" Height="119" Width="458" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label x:Name="label11" Content="0" Canvas.Left="103" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="label21" Content="0" Canvas.Left="145" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -34,8 +34,8 @@
         <Label x:Name="label51" Content="0" Canvas.Left="275" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="label61" Content="0" Canvas.Left="317" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="label71" Content="0" Canvas.Left="361" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="label81" Content="0" Canvas.Left="447" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="label91" Content="0" Canvas.Left="403" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="label81" Content="0" Canvas.Left="403" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="label91" Content="0" Canvas.Left="447" Canvas.Top="411" Height="64" Width="38" FontSize="48" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Результат" Canvas.Left="102" Canvas.Top="507" RenderTransformOrigin="-3.369,-3.749" Height="119" Width="432" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label x:Name="labelResult" Content="0" Canvas.Left="102" Canvas.Top="626" Height="64" Width="383" FontSize="48" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
         <Label Content="Количество оборотов" Canvas.Left="102" Canvas.Top="741" RenderTransformOrigin="-3.369,-3.749" Height="119" Width="524" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Center"/>
