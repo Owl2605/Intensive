@@ -46,15 +46,15 @@ namespace Arithmometer
         private string LEVER9_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString();
         string[] leversSTR = new string[]
         {
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever9.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever8.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever7.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever6.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever5.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever4.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever3.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString(),
         (Directory.GetCurrentDirectory() + @"\..\..\..\lever2.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString()
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever3.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever4.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever5.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever6.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever7.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever8.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\lever9.obj").ToString()
         };
 
         private string RESULT1_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
@@ -364,7 +364,7 @@ namespace Arithmometer
             }
             else if (str.Length == 3) //выставить каретку на значение str[2]
             {
-                bogie = (int)str[2];
+                bogie = int.Parse(str.Substring(0, 2));
                 switch (bogie)
                 {
                     case 1: BogLRX(-8); break;
@@ -435,7 +435,7 @@ namespace Arithmometer
                 await Task.Delay(75);
             }
         }
-    }
+    
 
         //double t = -8;
         //private async void Button_Click(object sender, RoutedEventArgs e)
