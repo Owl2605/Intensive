@@ -124,6 +124,10 @@ namespace Arithmometer
             //nwStream.Write(bytes, 0, bytes.Length);
 
         }
+        int numberOfLever = 1;
+        int numberOfSlide = 1;
+        int countOfRound = 0;
+        int Result = 0;
         void doIt(string str)
         {
             if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
@@ -131,23 +135,68 @@ namespace Arithmometer
             {
                 //тут должен быть код, связанный с выставлением цифр на рычажках 
                 //на рычажке str[0] выставить значение str[1]
+                numberOfLever = str[0];
+                switch (numberOfLever)
+                {
+                    case 1: label1.Content = str[1]; break;
+                    case 2: label2.Content = str[1]; break;
+                    case 3: label3.Content = str[1]; break;
+                    case 4: label4.Content = str[1]; break;
+                    case 5: label5.Content = str[1]; break;
+                    case 6: label6.Content = str[1]; break;
+                    case 7: label7.Content = str[1]; break;
+                    case 8: label8.Content = str[1]; break;
+                    case 9: label9.Content = str[1]; break;
+                }
             }
-            if (str == "вращаем ручку") // выполнить код для вращения ручки
+            else if (str == "Прокрутили ручку вперед") // выполнить код для вращения ручки вперед
             {
-
+                countOfRound += 1;
+                labelRounds.Content = countOfRound;
+            }            
+            else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
+            {
+                countOfRound += 1;
+                labelRounds.Content = countOfRound;
             }
-            if (str.Length == 1) //выставить каретку на значение str[0]
+            else if (str.Length == 3) //выставить каретку на значение str[2]
             {
-
+                numberOfSlide = str[2];
+                clearLabel();
+                switch (numberOfSlide)
+                {
+                    case 1: label11.Content = 1; break;
+                    case 2: label21.Content = 1; break;
+                    case 3: label31.Content = 1; break;
+                    case 4: label41.Content = 1; break;
+                    case 5: label51.Content = 1; break;
+                    case 6: label61.Content = 1; break;
+                    case 7: label71.Content = 1; break;
+                    case 8: label81.Content = 1; break;
+                    case 9: label91.Content = 1; break;
+                }
             }
-            if (str == "сбросил результаты") //сбросить результаты
+            else if (str == "сбросил результаты") //сбросить результаты
             {
-
+                labelResult.Content = string.Empty;
             }
-            if (str == "сбросил обороты") //сбросил обороты
+            else if (str == "сбросил обороты") //сбросил обороты
             {
-
+                labelRounds.Content = string.Empty;
+            }
+            void clearLabel()
+            {
+                label11.Content = string.Empty;
+                label21.Content = string.Empty;
+                label31.Content = string.Empty;
+                label41.Content = string.Empty;
+                label51.Content = string.Empty;
+                label61.Content = string.Empty;
+                label71.Content = string.Empty;
+                label81.Content = string.Empty;
+                label91.Content = string.Empty;
             }
         }
+
     }
 }
