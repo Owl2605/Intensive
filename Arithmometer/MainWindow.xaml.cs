@@ -54,5 +54,21 @@ namespace Arithmometer
             mechanism.Show();
             this.Hide();
         }
+
+        private void DocumentationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Documentation documentation = new Documentation();
+            documentation.MW = this;
+            documentation.Show();
+            this.Hide();
+        }
+
+        private void AuthorsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Authors authors = new Authors();
+            authors.MW = this;
+            authors.Show();
+            this.Hide();
+        }
     }
 }

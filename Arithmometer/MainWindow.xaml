@@ -58,5 +58,23 @@
                 <ImageBrush ImageSource="/psdintensiv333.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button x:Name="DocumentationBtn" Content="Документация" Canvas.Left="103" Canvas.Top="880" Height="108" Width="534" HorizontalAlignment="Center" VerticalAlignment="Top" Background="White" FontSize="36" FontFamily="./#Inter-V" FontWeight="Bold" Click="DocumentationBtn_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="AuthorsBtn" Content="Авторы" Canvas.Left="1277" Canvas.Top="880" Height="108" Width="540" Background="White" FontSize="36" FontFamily="./#Inter-V" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Click="AuthorsBtn_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Canvas>
 </Window>

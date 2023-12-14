@@ -61,7 +61,6 @@ namespace Arithmometer
 
                 //Import 3D model file
                 ModelImporter import = new ModelImporter();
-                Console.WriteLine(model);
                 //Load the 3D model file
                 device = import.Load(model);
             }
