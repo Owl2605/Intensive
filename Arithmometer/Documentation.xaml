@@ -22,5 +22,7 @@
                 <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Label x:Name="DocumentationLabel" Content="  Все жесты выполнять только правой рукой&#xA;  Режим настройки примитивов - показать только мизинец&#xA;  Установить точку - раздвинутые указательный и средний палец &#xA;соединить над местом, где должна быть точка&#xA;  Удалить последнюю точку - показать 4 пальца (без большого) слева &#xA;от арифмометра&#xA;  Режим работы - показать все 5 пальцев&#xA;  Выбрать рычажок, который будет двигаться - указательным пальцем &#xA;дотронуться до верхней точки линии, по которой движется рычажок&#xA;  Выбрать для движения каретку - указательным пальцем дотронуться до&#xA;левой точки линии, по которой она движется&#xA;  Выставление значения - указательным и средним пальцами двигать &#xA;рычажок, на который указали ранее&#xA;  Вращение ручки - " Canvas.Left="65" Canvas.Top="175" FontFamily="./#Inter-V" FontSize="48" FontWeight="Bold" Foreground="White" Height="895" Width="1790" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label x:Name="DocumetationTitle" Content="Руководство пользователя" Canvas.Left="10" Canvas.Top="25" FontFamily="./#Inter-V" FontSize="72" FontWeight="Bold" Foreground="White" Height="157" Width="1731" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
     </Canvas>
 </Window>

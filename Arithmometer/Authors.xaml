@@ -22,5 +22,7 @@
                 <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Label x:Name="AuthorsLabel" Content="Королева Варвара 22-ИСбо-1 - тимлид, разработчик&#xD;&#xA;Соков Олег 22-ИСбо-1 - разработчик&#xD;&#xA;Юрин Иван 22-ИСбо-1 - разработчик&#xD;&#xA;Воронов Максим 22-ИСбо-1 разработчик&#xD;&#xA;Капралов Артём 22-ИСбо-1 - разработчик&#xD;&#xA;Евстигнеев Кирилл 22-ИСбо-3 - дизайнер&#xD;&#xA;Малинин Егор 22-ИСбо-3 - дизайнер&#xD;&#xA;Частова Екатерина 22-ИСбо-3 - дизайнер&#xD;&#xA;Корощенко Кирилл 22-ИСбо-4 - аналитик" Canvas.Left="10" Canvas.Top="210" FontFamily="./#Inter-V" FontSize="72" FontWeight="Bold" Foreground="White" Height="837" Width="1900" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="AuthorsTitle" Content="Авторы - студенты 2 курса ИАСТ" Canvas.Left="10" Canvas.Top="25" FontFamily="./#Inter-V" FontSize="72" FontWeight="Bold" Foreground="White" Height="157" Width="1731" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
     </Canvas>
 </Window>
