@@ -94,13 +94,16 @@ namespace Arithmometer
         public MainWindow? MW { get { return mw; } set { mw = value; } }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            nwStream = client.GetStream();
-            string s = "stop";
-            byte[] bytes = Encoding.UTF8.GetBytes(s);
-            Console.WriteLine("true");
-            nwStream.Write(bytes, 0, bytes.Length);
-            Console.WriteLine("отправил стоп");
-            client.Close();
+            if (nwStream != null && client != null)
+            {
+                nwStream = client.GetStream();
+                string s = "stop";
+                byte[] bytes = Encoding.UTF8.GetBytes(s);
+                Console.WriteLine("true");
+                nwStream.Write(bytes, 0, bytes.Length);
+                Console.WriteLine("отправил стоп");
+                client.Close();
+            }
             server.Stop();
             thread.Interrupt();
             thread.Join();
@@ -432,6 +435,7 @@ namespace Arithmometer
                 await Task.Delay(75);
             }
         }
+    }
 
         //double t = -8;
         //private async void Button_Click(object sender, RoutedEventArgs e)
