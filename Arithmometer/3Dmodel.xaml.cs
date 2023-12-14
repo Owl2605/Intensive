@@ -31,7 +31,13 @@ namespace Arithmometer
         public MainWindow? MW { get { return mw; } set { mw = value; } }
 
         private void Back_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            nwStream = client.GetStream();
+            string s = "stop";
+            byte[] bytes = Encoding.UTF8.GetBytes(s);
+            Console.WriteLine("true");
+            nwStream.Write(bytes, 0, bytes.Length);
+            Console.WriteLine("отправил стоп");
             client.Close();
             server.Stop();
             thread.Interrupt();
@@ -107,10 +113,10 @@ namespace Arithmometer
             }
             catch { }
         }
-
+        NetworkStream nwStream;
         void Connection()
         {
-            NetworkStream nwStream = client.GetStream();
+            nwStream = client.GetStream();
             byte[] buffer = new byte[client.ReceiveBufferSize];
             int bytesRead = nwStream.Read(buffer, 0, client.ReceiveBufferSize);
             string dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
@@ -119,14 +125,6 @@ namespace Arithmometer
                 Console.WriteLine(dataReceived);
                 doIt(dataReceived);
             }
-            /*if (stopServer)
-            {
-                string s = "stop";
-                byte[] bytes = Encoding.UTF8.GetBytes(s);
-                Console.WriteLine("true");
-                nwStream.Write(bytes, 0, bytes.Length);
-                Console.WriteLine("отправил стоп");
-            }*/
 
         }
         char numberOfLever = '0';
