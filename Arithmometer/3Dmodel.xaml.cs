@@ -22,6 +22,7 @@ using System.Reflection.Metadata;
 using System.Threading.Channels;
 using System.Windows.Threading;
 using Microsoft.VisualBasic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Arithmometer
 {
@@ -308,10 +309,21 @@ namespace Arithmometer
                     }
                     RoundUp();
                     number = 0;
-                    for (int i = 0; i < 9; i++) //собираем данные с рычажков в одно число
+                    for (int i = 8; i >= 0; i--) //собираем данные с рычажков в одно число
                     {
-                        number += levers[i] * (long)Math.Pow(10, i);
+                        number += levers[i] * (long)Math.Pow(10, 8 - i);
                     }
+                    /*switch(bogie)
+                    {
+                        case 0: result += (number * 1); break;
+                        case 1: result += (number * 10); break;
+                        case 2: result += (number * 100); break;
+                        case 3: result += (number * 1000); break;
+                        case 4: result += (number * 10000); break;
+                        case 5: result += (number * 100000); break;
+                        case 6: result += (number * 1000000); break;
+                        case 7: result += (number * 10000000); break;
+                    }*/
                     result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
                     long temp = result;
                     for (int i = 0; i < 13; i++) //запись результата в ячейки
@@ -340,23 +352,78 @@ namespace Arithmometer
                     }
                     RoundDown();
                     number = 0;
-                    for (int i = 0; i < 9; i++) //собираем данные с рычажков в одно число
+                    for (int i = 8; i >= 0; i--) //собираем данные с рычажков в одно число
                     {
-                        number += levers[i] * (long)Math.Pow(10, i);
+                        number += levers[i] * (long)Math.Pow(10, 8 - i);
                     }
                     if (result - (number * (int)Math.Pow(10, bogie)) < 0) //проверка на отрицательное число
                     {
                         MessageBox.Show("Звонок!", "Ошибка!");
                         return;
                     }
+
+                    /*switch (bogie)
+                    {
+                        case 0: result -= (number * 1); if (result < 0) { 
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 1);
+                            } break;
+                        case 1:
+                            result -= (number * 1); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 1);
+                            }
+                            break;
+                        case 2:
+                            result -= (number * 10); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 10);
+                            }
+                            break;
+                        case 3:
+                            result -= (number * 100); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 100);
+                            }
+                            break;
+                        case 4:
+                            result -= (number * 10000); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 10000);
+                            }
+                            break;
+                        case 5:
+                            result -= (number * 100000); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 100000);
+                            }
+                            break;
+                        case 6:
+                            result -= (number * 1000000); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 1000000);
+                            }
+                            break;
+                        case 7:
+                            result -= (number * 10000000); if (result < 0)
+                            {
+                                MessageBox.Show("Звонок!", "Ошибка!");
+                                result += (number * 10000000);
+                            }
+                            break;
+                    }*/
                     result -= (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
                     long temp = result;
                     for (int i = 0; i < 13; i++) //запись результата в ячейки
                     {
                         if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
                         {
-                            MessageBox.Show("Звонок!", "Ошибка!");
-                            break;
                         }
                         results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
                     }
@@ -366,17 +433,17 @@ namespace Arithmometer
                 }
                 else if (str.Length == 3) //выставить каретку на значение str[2]
                 {
-                    bogie = (int)str[2];
+                    bogie = int.Parse(str.Substring(2, 1)) - 1;
                     switch (bogie)
                     {
-                        case 1: BogLRX(-8); break;
-                        case 2: BogLRX(-6); break;
-                        case 3: BogLRX(-4); break;
-                        case 4: BogLRX(-2); break;
-                        case 5: BogLRX(0); break;
-                        case 6: BogLRX(2); break;
-                        case 7: BogLRX(4); break;
-                        case 8: BogLRX(6); break;
+                        case 0: BogLRX(-8); break;
+                        case 1: BogLRX(-6); break;
+                        case 2: BogLRX(-4); break;
+                        case 3: BogLRX(-2); break;
+                        case 4: BogLRX(0); break;
+                        case 5: BogLRX(2); break;
+                        case 6: BogLRX(4); break;
+                        case 7: BogLRX(6); break;
                     }
                 }
                 else if (str == "сбросил результаты") //сбросить результаты
@@ -491,6 +558,11 @@ namespace Arithmometer
                 model3D = Display3d(leversSTR[i]);
                 levers3D[i].Content = model3D;
                 viewPort3d.Children.Add(levers3D[i]);
+            }
+            void ErrorMessage()
+            {
+                MessageBox.Show("Звонок!", "Ошибка!");
+                return;
             }
         }
     }
