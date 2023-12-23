@@ -3,42 +3,104 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:helix="http://helix-toolkit.org/wpf"
         Title="3DModel" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" Background="#FF353535" WindowStyle="None">
-    <Canvas>
-        <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="100">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Height="1064" Width="1920" >
-            <helix:DefaultLights/>
-        </helix:HelixViewport3D>
-        <Label x:Name="LB2" Content="0" Canvas.Left="1388" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48"/>
-        <Label x:Name="LB13" Content="0" Canvas.Left="879" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB4" Content="0" Canvas.Left="1296" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB3" Content="0" Canvas.Left="1341" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB6" Content="0" Canvas.Left="1204" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB5" Content="0" Canvas.Left="1249" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB8" Content="0" Canvas.Left="1110" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB7" Content="0" Canvas.Left="1156" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB10" Content="0" Canvas.Left="1019" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB9" Content="0" Canvas.Left="1064" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB12" Content="0" Canvas.Left="926" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB11" Content="0" Canvas.Left="972" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="LB1" Content="0" Canvas.Left="1433" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT8" Content="0" Canvas.Left="467" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT1" Content="0" Canvas.Left="792" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT3" Content="0" Canvas.Left="698" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT2" Content="0" Canvas.Left="744" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT5" Content="0" Canvas.Left="607" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT4" Content="0" Canvas.Left="652" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT7" Content="0" Canvas.Left="514" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="IT6" Content="0" Canvas.Left="560" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-    </Canvas>
+	<Canvas>
+		<Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="100">
+			<Button.Template>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid Background="{TemplateBinding Background}">
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+					</Grid>
+				</ControlTemplate>
+			</Button.Template>
+			<Button.Background>
+				<ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
+			</Button.Background>
+		</Button>
+		<helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Height="1064" Width="1920" >
+			<helix:DefaultLights/>
+		</helix:HelixViewport3D>
+		<Label x:Name="LB2" Content="0" Canvas.Left="1388" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48"/>
+		<Label x:Name="LB13" Content="0" Canvas.Left="879" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB4" Content="0" Canvas.Left="1296" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB3" Content="0" Canvas.Left="1341" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB6" Content="0" Canvas.Left="1204" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB5" Content="0" Canvas.Left="1249" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB8" Content="0" Canvas.Left="1110" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB7" Content="0" Canvas.Left="1156" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB10" Content="0" Canvas.Left="1019" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB9" Content="0" Canvas.Left="1064" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB12" Content="0" Canvas.Left="926" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB11" Content="0" Canvas.Left="972" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="LB1" Content="0" Canvas.Left="1433" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT8" Content="0" Canvas.Left="467" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT1" Content="0" Canvas.Left="792" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT3" Content="0" Canvas.Left="698" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT2" Content="0" Canvas.Left="744" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT5" Content="0" Canvas.Left="607" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT4" Content="0" Canvas.Left="652" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT7" Content="0" Canvas.Left="514" Canvas.Top="914" Height="70" Width="40" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Label x:Name="IT6" Content="0" Canvas.Left="560" Canvas.Top="914" Height="70" Width="42" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+		<Button x:Name="HelpBut" Content="" Height="117" Width="141" BorderBrush="#00000000" Click="Help_Click" Canvas.Left="26" Canvas.Top="27" Panel.ZIndex="100" HorizontalAlignment="Left" VerticalAlignment="Center">
+			<Button.Template>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid Background="{TemplateBinding Background}">
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+					</Grid>
+				</ControlTemplate>
+			</Button.Template>
+			<Button.Background>
+				<ImageBrush ImageSource="/HelpImage.png" Stretch="Uniform"/>
+			</Button.Background>
+		</Button>
+		<Popup x:Name="popUp" PlacementTarget="{Binding ElementName=HelpBut}" Placement="Center" Height="Auto" Width="340" StaysOpen="True" PopupAnimation="Scroll" >
+			<Border BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" BorderBrush="LightGray">
+				<Grid>
+					<StackPanel Background="White">
+						<Grid >
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition/>
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="168"></ColumnDefinition>
+								<ColumnDefinition Width="168"></ColumnDefinition>
+							</Grid.ColumnDefinitions>
+
+							<Image x:Name="img1" Grid.Row="0" Grid.Column="0" Width="150" Height="100" Stretch="Uniform" Margin="5,5,5,5" Source="/OneFinger.jpg"/>
+							<TextBlock x:Name="TextBlockHelp1_1" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="150" Grid.Row="1" Grid.Column="0" TextAlignment="Left" Margin="5,5,5,10" Text="Наведите указательным правой руки на нужный вам элемент для его выбора"/>
+
+							<Image Grid.Row="0" Grid.Column="1" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,5,5" Source="/TwoFingers.jpg"/>
+							<TextBlock x:Name="TextBlockHelp1_2" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="150" Grid.Row="1" Grid.Column="1" TextAlignment="Left" Text="Выбрав нужный элемент, добавьте средний палец, чтобы установить нужное значение" Margin="5,5,5,10"></TextBlock>
+
+							<Image  Source="/Fist+.jpg" Grid.Row="2" Grid.Column="0" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,5,5"/>
+							<TextBlock x:Name="TextBlockHelp2_1" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="{Binding Width, ElementName=TextBlockHelp1_1}" Grid.Row="3" Grid.Column="0" TextAlignment="Left" Text="Начиная с большого пальца, сожмите руку в кулак, чтобы выполнить операцию сложения" Margin="5,5,5,10"></TextBlock>
+
+							<Image  Source="/Fist-.jpg" Grid.Row="2" Grid.Column="1" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,5,5"/>
+							<TextBlock x:Name="TextBlockHelp2_2" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="{Binding Width, ElementName=TextBlockHelp1_2}" Grid.Row="3" Grid.Column="1" TextAlignment="Left" Text="Сожмите руку в кулак, отставив большой палец в сторону, чтобы выполнить операцию вычитания" Margin="5,5,5,10"></TextBlock>
+
+							<Image  Source="/DropRes.jpg" Grid.Row="4" Grid.Column="0" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,5,5"/>
+							<TextBlock x:Name="TextBlockHelp3_1" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="{Binding Width, ElementName=TextBlockHelp1_2}" Grid.Row="5" Grid.Column="0" TextAlignment="Left" Text="Показав этот жест в правой части арифмометра, вы сбросите результат арифмометра" Margin="5,5,5,10"></TextBlock>
+
+							<Image  Source="/DropTurn.jpg" Grid.Row="4" Grid.Column="1" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,5,5"/>
+							<TextBlock x:Name="TextBlockHelp3_2" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="{Binding Width, ElementName=TextBlockHelp1_2}" Grid.Row="5" Grid.Column="1" TextAlignment="Left" Text="Покажите этот жест в правой части арифмометра для сброса числа оборотов" Margin="5,5,5,10"></TextBlock>
+
+							<Border Grid.Row="6" Grid.ColumnSpan="2" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" BorderBrush="LightGray">
+								<StackPanel >
+									<Image  Source="/FiveFingers.jpg"  Grid.Row="6" Grid.Column="0" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,0,5"/>
+									<TextBlock x:Name="TextBlockHelp4_2" Grid.Row="6" Grid.Column="1" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="250"  TextAlignment="Left"  Text="ВАЖНО показать 5 пальцев в любой части арифмометра, после того, как был использован жест в правой части арифмометра" Margin="5,5,0,10"></TextBlock>
+								</StackPanel>
+							</Border>
+						</Grid>
+					</StackPanel>
+				</Grid>
+			</Border>
+		</Popup>
+		<Ellipse x:Name="circleHandIndicator" Width="70" Height="70" Fill="Red" Stroke="Black" StrokeThickness="2" Canvas.Left="1521" Canvas.Top="914"/>
+	</Canvas>
 </Window>

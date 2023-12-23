@@ -10,10 +10,17 @@
   <ItemGroup>
     <None Remove="12345 1.png" />
     <None Remove="12345.png" />
+    <None Remove="DropRes.jpg" />
+    <None Remove="DropTurn.jpg" />
+    <None Remove="Fist+.jpg" />
+    <None Remove="Fist-.jpg" />
+    <None Remove="FiveFingers.jpg" />
+    <None Remove="HelpImage.png" />
     <None Remove="Image1.png" />
     <None Remove="intens1 1.png" />
     <None Remove="intens3 1.png" />
     <None Remove="intens4 1.png" />
+    <None Remove="OneFinger.jpg" />
     <None Remove="PNGSTRELK.png" />
     <None Remove="psdintensiv1.png" />
     <None Remove="psdintensiv111.png" />
@@ -21,6 +28,7 @@
     <None Remove="psdintensiv222.png" />
     <None Remove="psdintensiv333.png" />
     <None Remove="psdintensiv4.png" />
+    <None Remove="TwoFingers.jpg" />
     <None Remove="zfsf_kopia.png" />
     <None Remove="zvz.png" />
     <None Remove="ZZZ.png" />
@@ -39,10 +47,17 @@
   <ItemGroup>
     <Resource Include="12345 1.png" />
     <Resource Include="12345.png" />
+    <Resource Include="DropRes.jpg" />
+    <Resource Include="DropTurn.jpg" />
+    <Resource Include="Fist+.jpg" />
+    <Resource Include="Fist-.jpg" />
+    <Resource Include="FiveFingers.jpg" />
+    <Resource Include="HelpImage.png" />
     <Resource Include="Image1.png" />
     <Resource Include="intens1 1.png" />
     <Resource Include="intens3 1.png" />
     <Resource Include="intens4 1.png" />
+    <Resource Include="OneFinger.jpg" />
     <Resource Include="PNGSTRELK.png" />
     <Resource Include="psdintensiv1.png" />
     <Resource Include="psdintensiv111.png" />
@@ -50,6 +65,7 @@
     <Resource Include="psdintensiv222.png" />
     <Resource Include="psdintensiv333.png" />
     <Resource Include="psdintensiv4.png" />
+    <Resource Include="TwoFingers.jpg" />
     <Resource Include="zfsf_kopia.png" />
     <Resource Include="zvz.png" />
     <Resource Include="ZZZ.png" />

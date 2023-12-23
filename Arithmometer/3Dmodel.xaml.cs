@@ -497,7 +497,13 @@ namespace Arithmometer
                 await Task.Delay(75);
             }
         }
-        async void RoundDown()
+
+		private void Help_Click(object sender, RoutedEventArgs e)
+		{
+            popUp.IsOpen = !popUp.IsOpen;
+		}
+
+		async void RoundDown()
         {
             for (int j = 0; j < 18; j++)
             {
