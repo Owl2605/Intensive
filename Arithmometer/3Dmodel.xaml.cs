@@ -287,7 +287,7 @@ namespace Arithmometer
         async void doIt(string str)
         {
             await this.Dispatcher.Invoke(async () =>
-            {
+            {   
                 if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
                                      //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
                 {
@@ -478,6 +478,19 @@ namespace Arithmometer
                         await Task.Delay(75);
                     }
                 }
+                else if (str == "Справка")
+                {
+                    popUp.IsOpen = !popUp.IsOpen;
+                }
+                else if (str == "Сброс")
+                {
+                    popUp.IsOpen = !popUp.IsOpen;
+                }
+                if (str == "Рука обнаружена")
+                    circleHandIndicator.Fill = new SolidColorBrush(Colors.Green);
+                if (str == "Рука не обнаружена")
+                    circleHandIndicator.Fill = new SolidColorBrush(Colors.Red);
+
             });
         }
 

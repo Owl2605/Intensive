@@ -93,7 +93,7 @@
 							<Border Grid.Row="6" Grid.ColumnSpan="2" BorderThickness="2,2,2,2" CornerRadius="2,2,2,2" BorderBrush="LightGray">
 								<StackPanel >
 									<Image  Source="/FiveFingers.jpg"  Grid.Row="6" Grid.Column="0" Width="{Binding Width, ElementName=img1}" Height="{Binding Height, ElementName=img1}" Stretch="Uniform" Margin="5,5,0,5"/>
-									<TextBlock x:Name="TextBlockHelp4_2" Grid.Row="6" Grid.Column="1" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="250"  TextAlignment="Left"  Text="ВАЖНО показать 5 пальцев в любой части арифмометра, после того, как был использован жест в правой части арифмометра" Margin="5,5,0,10"></TextBlock>
+									<TextBlock x:Name="TextBlockHelp4_2" Grid.Row="6" Grid.Column="1" FontFamily="./#Inter-V" FontWeight="Bold" TextWrapping="Wrap" Width="250"  TextAlignment="Left"  Text="ВАЖНО показать 5 пальцев в любой части арифмометра, после того, как был использован жест в правой части арифмометра или для закрытия справки" Margin="5,5,0,10"></TextBlock>
 								</StackPanel>
 							</Border>
 						</Grid>
