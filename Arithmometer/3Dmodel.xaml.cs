@@ -31,20 +31,19 @@ namespace Arithmometer
     {
         //Path to the model file
         ModelVisual3D machine3D;
-        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\machine.obj").ToString();
+        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\machine.obj").ToString();
         ModelVisual3D lc3D;
         Model3D lc3DModel3D;
-        private string LC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\leftСircle.obj").ToString();
+        private string LC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\leftСircle.obj").ToString();
         ModelVisual3D rc3D;
         Model3D rc3DModel3D;
-        private string RC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\rightСircle.obj").ToString();
+        private string RC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\rightСircle.obj").ToString();
         ModelVisual3D handle3D;
         Model3D handelModel3D;
-        private string HANDLE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\handle.obj").ToString();
+        private string HANDLE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\handle.obj").ToString();
         ModelVisual3D bogie3D;
-        private string BOGIE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\bogie.obj").ToString();
+        private string BOGIE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\bogie.obj").ToString();
 
-        private string LEVER9_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString();
         string[] leversSTR = new string[]
         {
         (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever1.obj").ToString(),
@@ -58,35 +57,9 @@ namespace Arithmometer
         (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever9.obj").ToString()
         };
 
-        private string RESULT1_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT2_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT3_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT4_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT5_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT6_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT7_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT8_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT9_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT10_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT11_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT12_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string RESULT13_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-
-        private string COUNT1_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT2_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT3_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT4_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT5_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT6_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT7_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-        private string COUNT8_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
-
         ModelVisual3D[] levers3D = new ModelVisual3D[9];
         int[] levers = new int[9];//значения рычажков
-        ModelVisual3D[] results3D = new ModelVisual3D[13];
         Label[] results, iterations;
-        ModelVisual3D[] counts3D = new ModelVisual3D[8];
-        //int[] counts = new int[8];
         Point3D lookAtPointLever;
         int[] iterationsValue = new int[8];
 
@@ -143,32 +116,6 @@ namespace Arithmometer
             LRX(lc3D, x);
             LRX(rc3D, x);
         }
-        void MyRotationAtX(ModelVisual3D device, double ang, Point3D lookAtPoint)
-        {
-            Vector3D axis = new Vector3D(1, 0, 0);
-            double angle = ang;
-            Matrix3D matrix = device.Content.Transform.Value;
-            matrix.RotateAt(new Quaternion(axis, angle), lookAtPoint);
-            device.Content.Transform = new MatrixTransform3D(matrix);
-        }
-        //void MyRotationAtZ(ModelVisual3D device, Point3D lookAtPoint)
-        //{
-        //    Vector3D axis = new Vector3D(1, 0, 0);
-        //    double angle = ang;
-        //    Matrix3D matrix = device.Content.Transform.Value;
-        //    matrix.RotateAt(new Quaternion(axis, angle), lookAtPoint);
-        //    device.Content.Transform = new MatrixTransform3D(matrix);
-        //}
-
-        void MyRotationZ(ModelVisual3D device, double angle)
-        {
-            Vector3D axis = new Vector3D(0, 0, 1);
-            Matrix3D matrix = device.Content.Transform.Value;
-            matrix.Rotate(new Quaternion(axis, angle));
-            device.Content.Transform = new MatrixTransform3D(matrix);
-        }
-
-
 
         bool stopServer = false;
         private Model3D Display3d(string model)
@@ -217,10 +164,6 @@ namespace Arithmometer
                 running = true;
                 client = server.AcceptTcpClient();
                 Console.WriteLine("Клиент подключился к серверу");
-                //NetworkStream nwStream = client.GetStream();
-                //byte[] buffer = new byte[64];
-                //int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
-                //Console.WriteLine("test1 " + bytesRead);
                 while (running)
                 {
                     Connection();
@@ -313,17 +256,6 @@ namespace Arithmometer
                     {
                         number += levers[i] * (long)Math.Pow(10, 8 - i);
                     }
-                    /*switch(bogie)
-                    {
-                        case 0: result += (number * 1); break;
-                        case 1: result += (number * 10); break;
-                        case 2: result += (number * 100); break;
-                        case 3: result += (number * 1000); break;
-                        case 4: result += (number * 10000); break;
-                        case 5: result += (number * 100000); break;
-                        case 6: result += (number * 1000000); break;
-                        case 7: result += (number * 10000000); break;
-                    }*/
                     result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
                     long temp = result;
                     for (int i = 0; i < 13; i++) //запись результата в ячейки
@@ -336,7 +268,6 @@ namespace Arithmometer
                         results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
                     }
                     iterationsValue[bogie] += 1;
-                    //string tmp = iterations[bogie].Content.ToString();
                     iterations[bogie].Content = Math.Abs(iterationsValue[bogie]);
                 }
                 else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
@@ -361,74 +292,18 @@ namespace Arithmometer
                         MessageBox.Show("Звонок!", "Ошибка!");
                         return;
                     }
-
-                    /*switch (bogie)
-                    {
-                        case 0: result -= (number * 1); if (result < 0) { 
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 1);
-                            } break;
-                        case 1:
-                            result -= (number * 1); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 1);
-                            }
-                            break;
-                        case 2:
-                            result -= (number * 10); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 10);
-                            }
-                            break;
-                        case 3:
-                            result -= (number * 100); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 100);
-                            }
-                            break;
-                        case 4:
-                            result -= (number * 10000); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 10000);
-                            }
-                            break;
-                        case 5:
-                            result -= (number * 100000); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 100000);
-                            }
-                            break;
-                        case 6:
-                            result -= (number * 1000000); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 1000000);
-                            }
-                            break;
-                        case 7:
-                            result -= (number * 10000000); if (result < 0)
-                            {
-                                MessageBox.Show("Звонок!", "Ошибка!");
-                                result += (number * 10000000);
-                            }
-                            break;
-                    }*/
                     result -= (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
                     long temp = result;
                     for (int i = 0; i < 13; i++) //запись результата в ячейки
                     {
                         if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
                         {
+                            MessageBox.Show("Звонок!", "Ошибка!");
+                            break;
                         }
                         results[i].Content = (temp / (long)Math.Pow(10, i)) % 10;
                     }
                     iterationsValue[bogie] -= 1;
-                    //string tmp = iterations[bogie].Content.ToString();
                     iterations[bogie].Content = Math.Abs(iterationsValue[bogie]);
                 }
                 else if (str.Length == 3) //выставить каретку на значение str[2]
@@ -525,22 +400,6 @@ namespace Arithmometer
             }
         }
 
-        //double t = -8;
-        //private async void Button_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //t += 2.3;
-        //BogLRX(t);
-        //for (int i = 0; i < 9; i++)
-        //{
-        //    string str = $"{9 - i}{i + 1}";
-        //    doIt(str);
-        //}
-        //MyRotationX(levers3D[0]);//, 10, lookAtPointLever);
-        //}
-
-
-
         void Add3DModels()
         {
             Model3D model3D;
@@ -570,18 +429,12 @@ namespace Arithmometer
             bogie3D.Content = model3D;
             viewPort3d.Children.Add(bogie3D);
 
-            //int temp = 0;
             for (int i = 0; i < levers3D.Length; i++)
             {
                 levers3D[i] = new ModelVisual3D();
                 model3D = Display3d(leversSTR[i]);
                 levers3D[i].Content = model3D;
                 viewPort3d.Children.Add(levers3D[i]);
-            }
-            void ErrorMessage()
-            {
-                MessageBox.Show("Звонок!", "Ошибка!");
-                return;
             }
         }
     }
