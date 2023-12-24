@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Arithmometer
 {
-    /// <summary>
-    /// Логика взаимодействия для WindowFact1.xaml
-    /// </summary>
     public partial class WindowFact1 : Window
     {
         public WindowFact1()

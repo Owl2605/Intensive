@@ -47,15 +47,15 @@ namespace Arithmometer
         private string LEVER9_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString();
         string[] leversSTR = new string[]
         {
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever1.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever2.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever3.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever4.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever5.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever6.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever7.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever8.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\lever9.obj").ToString()
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever1.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever2.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever3.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever4.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever5.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever6.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever7.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever8.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever9.obj").ToString()
         };
 
         private string RESULT1_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\.obj").ToString();
