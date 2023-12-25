@@ -20,29 +20,29 @@ namespace Arithmometer
         {
             InitializeComponent();
         }
-        MainWindow? mw;
-        public MainWindow? MW { get { return mw; } set { mw = value; } }
+        MainWindow? mw; //переменная для главного окна
+        public MainWindow? MW { get { return mw; } set { mw = value; } } //свойство для переменной 
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e) //обработчик кнопки "назад"
         {
-            MW.Show();
-            this.Close();
+            MW.Show(); //показывает главное окно
+            this.Close(); //закрывает текущее окно
         }
 
-        private void Next_Click(object sender, RoutedEventArgs e)
+        private void Next_Click(object sender, RoutedEventArgs e) //обработчик кнопки "следующий"
         {
-            WindowFact3 fact3 = new WindowFact3();
-            fact3.MW = this.MW;
-            fact3.Show();
-            this.Close();
+            WindowFact3 fact3 = new WindowFact3(); //создает новый экземпляр класса
+            fact3.MW = this.MW; //передает главное окно в переменную
+            fact3.Show(); //показывает экземпляр окна 
+            this.Close(); //закрывает текущее окно
         }
 
-        private void Previous_Click(object sender, RoutedEventArgs e)
+        private void Previous_Click(object sender, RoutedEventArgs e) //обработчик кнопки "предыдущий"
         {
-            WindowFact1 fact1 = new WindowFact1();
-            fact1.MW = this.MW;
-            fact1.Show();
-            this.Close();
+            WindowFact1 fact1 = new WindowFact1(); //создает новый экземпляр класса
+            fact1.MW = this.MW; //передает главное окно в переменную
+            fact1.Show(); //показывает экземпляр окна 
+            this.Close(); //закрывает текущее окно
         }
     }
 }

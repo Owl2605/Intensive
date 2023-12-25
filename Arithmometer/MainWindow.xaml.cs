@@ -23,49 +23,49 @@ namespace Arithmometer
             InitializeComponent();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e) //обработчик кнопки выхода
         {
-            Application.Current.Shutdown();
+            Application.Current.Shutdown(); //завершает работу приложения
         }
 
-        private void btn_3dmodel_Click(object sender, RoutedEventArgs e)
+        private void btn_3dmodel_Click(object sender, RoutedEventArgs e) //обработчик кнопки "Виртуальный арифмометр"
         {
-            _3Dmodel _3Dmodel = new _3Dmodel();
-            _3Dmodel.MW = this;
-            _3Dmodel.Show();
-            this.Hide();
+            _3Dmodel _3Dmodel = new _3Dmodel(); //создает новый экземпляр класса
+            _3Dmodel.MW = this; //передает текущее окно в переменную
+            _3Dmodel.Show(); //показывает экземпляр окна 
+            this.Hide(); //скрывает текущее окно
         }
 
-        private void btn_facts_Click(object sender, RoutedEventArgs e)
+        private void btn_facts_Click(object sender, RoutedEventArgs e) //обработчик кнопки "Интересные факты"
         {
-            WindowFact1 fact = new WindowFact1();
-            fact.MW = this;
-            fact.Show();
-            this.Hide();
+            WindowFact1 fact = new WindowFact1(); //создает новый экземпляр класса
+            fact.MW = this; //передает текущее окно в переменную
+            fact.Show(); //показывает экземпляр окна 
+            this.Hide(); //скрывает текущее окно
         }
 
-        private void btn_mechanism_Click(object sender, RoutedEventArgs e)
+        private void btn_mechanism_Click(object sender, RoutedEventArgs e) //обработчик кнопки "Механизм арифмометра"
         {
-            IN3dModel mechanism = new IN3dModel();
-            mechanism.MW = this;
-            mechanism.Show();
-            this.Hide();
+            IN3dModel mechanism = new IN3dModel(); //создает новый экземпляр класса
+            mechanism.MW = this; //передает текущее окно в переменную
+            mechanism.Show(); //показывает экземпляр окна 
+            this.Hide(); //скрывает текущее окно
         }
 
-        private void DocumentationBtn_Click(object sender, RoutedEventArgs e)
+        private void DocumentationBtn_Click(object sender, RoutedEventArgs e) //обработчик кнопки "Документация"
         {
-            Documentation documentation = new Documentation();
-            documentation.MW = this;
-            documentation.Show();
-            this.Hide();
+            Documentation documentation = new Documentation(); //создает новый экземпляр класса
+            documentation.MW = this; //передает текущее окно в переменную
+            documentation.Show(); //показывает экземпляр окна 
+            this.Hide(); //скрывает текущее окно
         }
 
-        private void AuthorsBtn_Click(object sender, RoutedEventArgs e)
+        private void AuthorsBtn_Click(object sender, RoutedEventArgs e) //обработчик кнопки "Авторы"
         {
-            Authors authors = new Authors();
-            authors.MW = this;
-            authors.Show();
-            this.Hide();
+            Authors authors = new Authors(); //создает новый экземпляр класса
+            authors.MW = this; //передает текущее окно в переменную
+            authors.Show(); //показывает экземпляр окна 
+            this.Hide(); //скрывает текущее окно
         }
     }
 }

@@ -29,7 +29,6 @@ namespace Arithmometer
 
     public partial class _3Dmodel : Window
     {
-        //Path to the model file
         ModelVisual3D machine3D;
         private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\machine.obj").ToString();
         ModelVisual3D lc3D;
@@ -60,13 +59,12 @@ namespace Arithmometer
         ModelVisual3D[] levers3D = new ModelVisual3D[9];
         int[] levers = new int[9];//значения рычажков
         Label[] results, iterations;
-        Point3D lookAtPointLever;
         int[] iterationsValue = new int[8];
 
 
-        MainWindow? mw;
-        public MainWindow? MW { get { return mw; } set { mw = value; } }
-        private void Back_Click(object sender, RoutedEventArgs e)
+        MainWindow? mw; //переменная для главного окна
+        public MainWindow? MW { get { return mw; } set { mw = value; } } //свойство для переменной 
+        private void Back_Click(object sender, RoutedEventArgs e) //обработчик кнопки "назад"
         {
             if (nwStream != null && client != null)
             {
@@ -81,11 +79,9 @@ namespace Arithmometer
             server.Stop();
             thread.Interrupt();
             thread.Join();
-            MW.Show();
-            this.Close();
+            MW.Show(); //показывает главное окно
+            this.Close(); //закрывает текущее окно
         }
-        ModelVisual3D device3D;
-        Model3D model3D;
         Point3D loAtPoint;
         Point3D RCloAtPoint;
         Point3D LCloAtPoint;
@@ -117,7 +113,6 @@ namespace Arithmometer
             LRX(rc3D, x);
         }
 
-        bool stopServer = false;
         private Model3D Display3d(string model)
         {
             Model3D device = null;
@@ -220,10 +215,7 @@ namespace Arithmometer
 
         }
 
-        int numberOfLever = 1;
         int bogie = 0;
-        int countOfRound = 0;
-        int Result = 0;
         long number, result;
 
 

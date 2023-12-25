@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Arithmometer
 {
-    /// <summary>
-    /// Логика взаимодействия для IN3dModel.xaml
-    /// </summary>
     public partial class IN3dModel : Window
     {
         public IN3dModel()
@@ -24,13 +21,13 @@ namespace Arithmometer
             InitializeComponent();
         }
 
-        MainWindow? mw;
-        public MainWindow? MW { get { return mw; } set { mw = value; } }
+        MainWindow? mw; //переменная для главного окна
+        public MainWindow? MW { get { return mw; } set { mw = value; } } //свойство для переменной 
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e) //обработчик кнопки "назад"
         {
-            MW.Show();
-            this.Close();
+            MW.Show(); //показывает главное окно
+            this.Close(); //закрывает текущее окно
         }
     }
 }
