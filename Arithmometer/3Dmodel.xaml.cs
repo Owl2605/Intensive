@@ -31,30 +31,30 @@ namespace Arithmometer
     {
         //Path to the model file
         ModelVisual3D machine3D;
-        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\machine.obj").ToString();
+        private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\machine.obj").ToString();
         ModelVisual3D lc3D;
         Model3D lc3DModel3D;
-        private string LC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\leftСircle.obj").ToString();
+        private string LC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\leftСircle.obj").ToString();
         ModelVisual3D rc3D;
         Model3D rc3DModel3D;
-        private string RC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\rightСircle.obj").ToString();
+        private string RC_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\rightСircle.obj").ToString();
         ModelVisual3D handle3D;
         Model3D handelModel3D;
-        private string HANDLE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\handle.obj").ToString();
+        private string HANDLE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\handle.obj").ToString();
         ModelVisual3D bogie3D;
-        private string BOGIE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\MachinElem\bogie.obj").ToString();
+        private string BOGIE_MODEL = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\bogie.obj").ToString();
 
         string[] leversSTR = new string[]
         {
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever1.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever2.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever3.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever4.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever5.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever6.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever7.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever8.obj").ToString(),
-        (Directory.GetCurrentDirectory() + @"\..\..\..\Levers\lever9.obj").ToString()
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever1.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever2.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever3.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever4.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever5.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever6.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever7.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever8.obj").ToString(),
+        (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\Levers\lever9.obj").ToString()
         };
 
         ModelVisual3D[] levers3D = new ModelVisual3D[9];

@@ -8,9 +8,9 @@
         Title="IN3dModel" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" >
     <Canvas>
         <Canvas.Background>
-            <ImageBrush ImageSource="/12345 1.png"/>
+            <ImageBrush ImageSource="/Resources/Backgrounds/12345 1.png"/>
         </Canvas.Background>
-        <Image Source="/zfsf_kopia.png" Height="701" Canvas.Left="405" Width="1222" Canvas.Top="182" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Source="/Resources/Images/zfsf_kopia.png" Height="701" Canvas.Left="405" Width="1222" Canvas.Top="182" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -20,7 +20,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Resources/Images/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
     </Canvas>

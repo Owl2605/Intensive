@@ -16,7 +16,7 @@
     </Window.Resources>
     <Canvas x:Name="mainWindow" Width="1920" Margin="0,0,0,0">
         <Canvas.Background>
-            <ImageBrush ImageSource="/12345 1.png"/>
+            <ImageBrush ImageSource="/Resources/Backgrounds/12345 1.png"/>
         </Canvas.Background>
         <Button x:Name="Exit" Content="" HorizontalAlignment="Center" Width="141" Click="Exit_Click" Height="126" VerticalAlignment="Center" Canvas.Left="1769" Canvas.Top="10">
             <Button.Template>
@@ -27,7 +27,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens3 1.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/Images/intens3 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="btn_3dmodel" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="551" Width="534" Click="btn_3dmodel_Click" BorderBrush="#00000000" Canvas.Left="103" Canvas.Top="266">
@@ -39,7 +39,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/psdintensiv111.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/Images/psdintensiv111.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="btn_mechanism" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="548" Width="552" Click="btn_mechanism_Click" BorderBrush="#00000000" Canvas.Left="681" Canvas.Top="263" RenderTransformOrigin="0.522,0.515">
@@ -51,7 +51,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/psdintensiv222.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/Images/psdintensiv222.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="btn_facts" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="548" Width="540" Click="btn_facts_Click" BorderBrush="#00000000" Foreground="Black" Canvas.Left="1277" Canvas.Top="269" >
@@ -63,7 +63,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/psdintensiv333.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/Images/psdintensiv333.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button Template="{DynamicResource ButtonStyle}" x:Name="DocumentationBtn" Content="Документация" Canvas.Left="103" Canvas.Top="880" Height="108" Width="534" HorizontalAlignment="Center" VerticalAlignment="Top" Background="White" FontSize="36" FontFamily="./#Inter-V" FontWeight="Bold" Click="DocumentationBtn_Click">

@@ -8,7 +8,7 @@
         Title="Documentation" Height="1080" Width="1920" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Canvas>
         <Canvas.Background>
-            <ImageBrush ImageSource="/12345 1.png"/>
+            <ImageBrush ImageSource="/Resources/Backgrounds/12345 1.png"/>
         </Canvas.Background>
         <Button x:Name="Back" Content="" Height="160" Width="169" BorderBrush="#00000000" Click="Back_Click" Canvas.Left="1741" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="100">
             <Button.Template>
@@ -19,7 +19,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Resources/Images/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Label x:Name="DocumentationLabel" Content="  Все жесты выполнять только правой рукой&#xA;  В режиме настройки: &#xA;  Установить точку - раздвинутые указательный и средний палец соединить над местом, &#xA;где должна быть точка&#xA;  Удалить последнюю точку - показать 4 пальца (без большого) слева от арифмометра&#xA;  В режиме работы:&#xA;  Выбрать рычажок, который будет двигаться - указательным пальцем дотронуться &#xA;до верхней точки линии, по которой движется рычажок&#xA;  Выбрать для движения каретку - указательным пальцем дотронуться до левой точки &#xA;линии, по которой она движется&#xA;  Выставление значения - указательным и средним пальцами двигать рычажок, &#xA;на который указали ранее&#xA;  Вращение ручки вперед - кулак в правой части модели&#xA;  Вращение ручки назад - кулак и выставленный большой палец в правой части модели &#xA;  Сбросить число оборотов - большой, указательный и средний палец в правой части &#xA;  Сбросить результат - большой и указательный палец в правой части модели&#xA;  После каждого жеста в правой части необходимо показать 5 пальцев &#xA;в любой части арифмометра. 5 пальцев также закрывают справку.&#xD;&#xA;  Открыть справку: указательный, средний и безымянный палец. " Canvas.Left="65" Canvas.Top="131" FontFamily="./#Inter-V" FontSize="40" FontWeight="Bold" Foreground="White" Height="933" Width="1790" HorizontalAlignment="Center" VerticalAlignment="Top"/>

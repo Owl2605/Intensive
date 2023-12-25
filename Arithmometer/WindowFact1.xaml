@@ -8,9 +8,9 @@
         Title="WindowFact1" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
     <Canvas>
         <Canvas.Background>
-            <ImageBrush ImageSource="/12345.png"/>
+            <ImageBrush ImageSource="Resources/Backgrounds/12345.png"/>
         </Canvas.Background>
-        <Image HorizontalAlignment="Left" Width="1048" Source="/Рисунок1 копия.png" Canvas.Left="436" Canvas.Top="33" Height="698" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+        <Image HorizontalAlignment="Left" Width="1048" Source="Resources/Facts/Рисунок1 копия.png" Canvas.Left="436" Canvas.Top="33" Height="698" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,9 +20,9 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image HorizontalAlignment="Center" Width="1278" Source="/Без имени-78.png" Canvas.Left="321" Canvas.Top="777" Height="247" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+        <Image HorizontalAlignment="Center" Width="1278" Source="Resources/Facts/Без имени-78.png" Canvas.Left="321" Canvas.Top="777" Height="247" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
             <Image.OpacityMask>
-                <ImageBrush ImageSource="/Без имени-78.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/Resources/Facts/Без имени-78.png" Stretch="UniformToFill"/>
             </Image.OpacityMask>
             <Image.RenderTransform>
                 <TransformGroup>
@@ -42,7 +42,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/intens1 1.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Resources/Images/intens1 1.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="Next" Content="" Canvas.Left="1723" Canvas.Top="532" Height="120" Width="205" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="10" IsCancel="True" RenderTransformOrigin="0.539,0.859" Click="Next_Click">
@@ -54,7 +54,7 @@
                 </ControlTemplate>
             </Button.Template>
             <Button.Background>
-                <ImageBrush ImageSource="/PNGSTRELK.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Resources/Images/PNGSTRELK.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 
