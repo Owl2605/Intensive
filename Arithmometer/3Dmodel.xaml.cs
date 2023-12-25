@@ -142,6 +142,10 @@ namespace Arithmometer
         TcpListener server;
         TcpClient client;
         bool running;
+
+        /// <summary>
+        /// Метод для запуска в отдельном потоке сервера
+        /// </summary>
         void Start()
         {
             ThreadStart ts = new ThreadStart(GetData);
@@ -149,35 +153,42 @@ namespace Arithmometer
             thread.Start();
         }
 
+        /// <summary>
+        /// Метод для получения данных с сервера
+        /// </summary>
         void GetData()
         {
             try
             {
-                server = new TcpListener(IPAddress.Any, connectionPort);
-                server.Start();
+                server = new TcpListener(IPAddress.Any, connectionPort); 
+                server.Start(); //Запускаем сервер
                 Console.WriteLine("Сервер готов к получению клиента");
                 running = true;
-                client = server.AcceptTcpClient();
+                client = server.AcceptTcpClient(); //Устанавливаем соединение
                 Console.WriteLine("Клиент подключился к серверу");
-                while (running)
+                while (running) //Пока работает сервер читаем и выполняем команды клиента
                 {
-                    Connection();
+                    Connection(); 
                 }
                 server.Stop();
             }
             catch { }
         }
         NetworkStream nwStream;
+        /// <summary>
+        /// Пока установлено соединение читаем команды клиента
+        /// </summary>
         void Connection()
         {
             nwStream = client.GetStream();
+            //создаём буффер в который будем записывать строку
             byte[] buffer = new byte[client.ReceiveBufferSize];
             int bytesRead = nwStream.Read(buffer, 0, client.ReceiveBufferSize);
             string dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-            if (dataReceived.Length != 0)
+            if (dataReceived.Length != 0) //если полученная строка содержит информацию
             {
                 Console.WriteLine(dataReceived);
-                doIt(dataReceived);
+                doIt(dataReceived); //выполняем команду клиента
             }
 
         }
@@ -345,17 +356,17 @@ namespace Arithmometer
                         await Task.Delay(75);
                     }
                 }
-                else if (str == "Справка")
+                else if (str == "Справка") //вывести справку на экран
                 {
                     popUp.IsOpen = !popUp.IsOpen;
                 }
-                else if (str == "Сброс")
+                else if (str == "Сброс") //закрыть справку
                 {
                     popUp.IsOpen = !popUp.IsOpen;
                 }
-                if (str == "Рука обнаружена")
+                if (str == "Рука обнаружена") //меняем цвет датчика на зелёный цвет
                     circleHandIndicator.Fill = new SolidColorBrush(Colors.Green);
-                if (str == "Рука не обнаружена")
+                if (str == "Рука не обнаружена") //меняем цвет датчика на красный цвет
                     circleHandIndicator.Fill = new SolidColorBrush(Colors.Red);
 
             });
