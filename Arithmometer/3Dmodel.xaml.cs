@@ -66,18 +66,16 @@ namespace Arithmometer
         public MainWindow? MW { get { return mw; } set { mw = value; } } //свойство для переменной 
         private void Back_Click(object sender, RoutedEventArgs e) //обработчик кнопки "назад"
         {
-            if (nwStream != null && client != null)
+            if (nwStream != null && client != null) //проверяем наличие соединения с клиентом
             {
                 nwStream = client.GetStream();
                 string s = "stop";
-                byte[] bytes = Encoding.UTF8.GetBytes(s);
-                Console.WriteLine("true");
-                nwStream.Write(bytes, 0, bytes.Length);
-                Console.WriteLine("отправил стоп");
+                byte[] bytes = Encoding.UTF8.GetBytes(s); //отправляем stop на клиент
+                nwStream.Write(bytes, 0, bytes.Length); 
                 client.Close();
             }
-            server.Stop();
-            thread.Interrupt();
+            server.Stop(); //останавливаем сервер
+            thread.Interrupt(); //завершаем поток
             thread.Join();
             MW.Show(); //показывает главное окно
             this.Close(); //закрывает текущее окно
