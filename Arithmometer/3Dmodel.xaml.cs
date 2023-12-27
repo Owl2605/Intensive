@@ -112,6 +112,14 @@ namespace Arithmometer
             LRX(rc3D, x);
         }
 
+        void LRX(ModelVisual3D device, double x) //сдвиг по X
+        {
+            Matrix3D matrix;
+            matrix = device.Content.Transform.Value; //получаем матрицу 3D модели
+            matrix.OffsetX = x; //смещаем по оси X
+            device.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
+        }
+
         private Model3D Display3d(string model)
         {
             Model3D device = null;
@@ -191,19 +199,13 @@ namespace Arithmometer
             }
 
         }
+
         void LR(ModelVisual3D device, double z, double y) //сдвиг по Y, Z
         {
             Matrix3D matrix;
             matrix = device.Content.Transform.Value; //получаем матрицу 3D модели
             matrix.OffsetZ = z; //смещаем по оси Z
             matrix.OffsetY = y; //смещаем по оси Y
-            device.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
-        }
-        void LRX(ModelVisual3D device, double x) //сдвиг по X
-        {
-            Matrix3D matrix;
-            matrix = device.Content.Transform.Value; //получаем матрицу 3D модели
-            matrix.OffsetX = x; //смещаем по оси X
             device.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
         }
 
