@@ -220,6 +220,7 @@ namespace Arithmometer
                 case 6: LR(device, 16, 0); break;
                 case 7: LR(device, 18.5, -2); break;
                 case 8: LR(device, 19.7, -5); break;
+                case 9: LR(device, 20.7, -7); break;
             }
 
         }
