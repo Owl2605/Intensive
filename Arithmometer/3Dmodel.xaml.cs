@@ -29,6 +29,16 @@ namespace Arithmometer
 
     public partial class _3Dmodel : Window
     {
+        const string BogieUpConst = "Прокрутили ручку вперед",
+            BogieDownConst = "Прокрутили ручку назад",
+            DellResultConst = "сбросил результаты",
+            DellIterationsConst = "сбросил обороты",
+            ReferenceONConst = "Справка",
+            ReferenceOFFConst = "Сброс",
+            HandDetectedConst = "Рука обнаружена",
+            HandUnDetectedConst = "Рука не обнаружена";
+        const long ResultPosition14 = 10000000000000;
+
         ModelVisual3D machine3D;
         private string MODEL_PATH = (Directory.GetCurrentDirectory() + @"\..\..\..\Resources\MachinElem\machine.obj").ToString(); //получаем полный путь к 3D модели корпуса арифмометра
         ModelVisual3D lc3D;
@@ -61,6 +71,13 @@ namespace Arithmometer
         Label[] results, iterations; //массив лейблов результата и количества операций
         int[] iterationsValue = new int[8]; //массив количества операций
 
+        int bogie = 0; //значение каретки 
+        long number;
+        long result;
+
+        Point3D loAtPoint; //центр вращения рукоятки
+        Point3D RCloAtPoint; //центр вращения правого барашка
+        Point3D LCloAtPoint; //центр вращения левого барашка
 
         MainWindow? mw; //переменная для главного окна
         public MainWindow? MW { get { return mw; } set { mw = value; } } //свойство для переменной 
@@ -80,10 +97,6 @@ namespace Arithmometer
             MW.Show(); //показывает главное окно
             this.Close(); //закрывает текущее окно
         }
-
-        Point3D loAtPoint; //центр вращения рукоятки
-        Point3D RCloAtPoint; //центр вращения правого барашка
-        Point3D LCloAtPoint; //центр вращения левого барашка
 
         public _3Dmodel()
         {
@@ -227,151 +240,174 @@ namespace Arithmometer
 
         }
 
-        int bogie = 0; //значение каретки 
-        long number;
-        long result;
+        void MoveLever(String str)
+        {
+            int tempL = int.Parse(str.Substring(0, 1)) - 1; //получаем номер рычажка, поправка на элемент массива
+            int tempN = int.Parse(str.Substring(1, 1)); //получаем цифру выставленную на рычажке
+            levers[tempL] = tempN; //присваиваем выставленное число рычажку в массиве 
+            LeversRotation(levers3D[tempL], tempN); //сдвигаем рычажок (какой рычажок, на какую цифру)
+        }
 
+        void Iterations9Check() //проверка, что ячейка счетчика операций не выйдет за пределы 9
+        {
+            if (iterations[bogie].Content.ToString() == "9") 
+            {
+                throw new ArgumentException("Звонок!\nЗначение ячейки счетчика операций не может быть больше 9.");
+            }
+        }
+
+        void ResultPosition14Check() //проверка на выход числа за пределы ячеек
+        {
+            if (result >= ResultPosition14) 
+            {
+                throw new ArgumentException("Звонок!\nРазрядность числа больше, чем количество ячеек результата.");
+            }
+        }
+
+        void NumberCount()
+        {
+            number = 0;
+            for (int i = 8; i >= 0; i--) //собираем данные с рычажков в одно число начиная с последнего
+            {
+                number += levers[i] * (long)Math.Pow(10, 8 - i); //собираем данные для рычажков в единое число
+            }
+            
+        }
+
+        void ResultContent() //запись результата в ячейки
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                results[i].Content = (result / (long)Math.Pow(10, i)) % 10; //отделяем часть числа и записываем в соответствующий лейбл
+            }
+        }
+        
+        void CountRoundUP()
+        {
+            Iterations9Check();//проверка, что ячейка счетчика операций не выйдет за пределы 9
+            NumberCount(); //подсчет числа выставленного на рычажках
+            result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
+            ResultPosition14Check(); //проверка на выход числа за пределы ячеек результата
+            RoundUp(); //анимация крутим ручку вперед
+            ResultContent(); //запись результата в ячейки
+            iterationsValue[bogie] += 1; //увеличиваем число операций в массиве
+            iterations[bogie].Content = Math.Abs(iterationsValue[bogie]); //передаем количество операций в лейбл
+        }
+
+        void CountRoundDown()
+        {
+            Iterations9Check();//проверка, что ячейка счетчика операций не выйдет за пределы 9
+            NumberCount(); //подсчет числа выставленного на рычажках
+            NegativeNumberCheck(); //проверка на отрицательное число
+            result -= (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
+            ResultPosition14Check(); //проверка на выход числа за пределы ячеек результата
+            RoundDown(); //анимация крутим ручку назад 
+            ResultContent(); //запись результата в ячейки
+            iterationsValue[bogie] -= 1; //уменьшаем число операций в массиве
+            iterations[bogie].Content = Math.Abs(iterationsValue[bogie]); //передаем количество операций в лейбл
+        }
+
+        void NegativeNumberCheck() //проверка на отрицательное число
+        {
+            if (result - (number * (long)Math.Pow(10, bogie)) < 0) 
+            {
+                throw new ArgumentException("Звонок!\nАрифмометр не работает с отрицательными числми.");
+            }
+        }
+
+        void BogiePosition(String str) //выставление каретки
+        {
+            bogie = int.Parse(str.Substring(2, 1)) - 1; //получаем на какое значение выставлена каретка
+            BogLRX((2.3 * bogie) - 8); //0 - крайнее левое положение (каордината -8), 7 - крайнее правое (каордината 6)
+        }
 
         async void doIt(string str)
         {
             await this.Dispatcher.Invoke(async () =>
-            {   
-                if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
-                                     //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
+            {
+                try
                 {
-                    int tempL = int.Parse(str.Substring(0, 1)) - 1; //получаем номер рычажка, поправка на элемент массива
-                    int tempN = int.Parse(str.Substring(1, 1)); //получаем цифру выставленную на рычажке
-                    levers[tempL] = tempN; //присваиваем выставленное число рычажку в массиве 
-                    LeversRotation(levers3D[tempL], tempN); //сдвигаем рычажок (какой рычажок, на какую цифру)
-                }
-                else if (str == "Прокрутили ручку вперед") //выполнить код для вращения ручки вперед
-                {
-                    if (bogie == 5 && levers[8] != 0 || //проверка, что рычажки с выставленными числами находятся не над ячейками
-                    bogie == 6 && levers[8] != 0 && levers[7] != 0 ||
-                    bogie == 7 && levers[8] != 0 && levers[7] != 0 && levers[6] != 0 ||
-                    iterations[bogie].Content.ToString() == "9") //проверка, что счетчик операций не выйдет за пределы
-                    {
-                        MessageBox.Show("Звонок!", "Ошибка!");
-                        return;
-
+                    if (str.Length == 2) // Если длина строки равна двум, значит мы передали на сервер данные по рычажку
+                    { //первая цифра - номер рычажка, вторая цифра - цифра на рычажке
+                        MoveLever(str); //сдвигаем рычажок
                     }
-                    RoundUp(); //анимация крутим ручку вперед
-                    number = 0;
-                    for (int i = 8; i >= 0; i--) //собираем данные с рычажков в одно число начиная с последнего
+                    else if (str == BogieUpConst) //выполнить код для вращения ручки вперед
                     {
-                        number += levers[i] * (long)Math.Pow(10, 8 - i); //собираем данные для рычажков в единое число
+                        CountRoundUP();
                     }
-                    result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
-                    long temp = result;
-                    for (int i = 0; i < 13; i++) //запись результата в ячейки
+                    else if (str == BogieDownConst) // выполнить код для вращения ручки назад
                     {
-                        if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
-                        {
-                            MessageBox.Show("Звонок!", "Ошибка!");
-                            break;
-                        }
-                        results[i].Content = (temp / (long)Math.Pow(10, i)) % 10; //отделяем часть числа и записываем в соответствующий лейбл
+                        CountRoundDown();
                     }
-                    iterationsValue[bogie] += 1; //увеличиваем число операций в массиве
-                    iterations[bogie].Content = Math.Abs(iterationsValue[bogie]); //передаем количество операций в лейбл
-                }
-                else if (str == "Прокрутили ручку назад") // выполнить код для вращения ручки назад
-                {
-                    if (bogie == 5 && levers[8] != 0 || //проверка, что рычажки с выставленными числами находятся не над ячейками
-                    bogie == 6 && levers[8] != 0 && levers[7] != 0 ||
-                    bogie == 7 && levers[8] != 0 && levers[7] != 0 && levers[6] != 0 ||
-                    iterations[bogie].Content.ToString() == "9") //проверка, что счетчик операций не выйдет за пределы
+                    else if (str.Length == 3) //выставить каретку на значение str[2]
                     {
-                        MessageBox.Show("Звонок!", "Ошибка!");
-                        return;
-
+                        BogiePosition(str);
                     }
-                    RoundDown(); //анимация крутим ручку назад 
-                    number = 0;
-                    for (int i = 8; i >= 0; i--) //собираем данные с рычажков в одно число начиная с последнего
+                    else if (str == DellResultConst) //сбросить результаты
                     {
-                        number += levers[i] * (long)Math.Pow(10, 8 - i); //собираем данные для рычажков в единое число
+                        DellResult();
                     }
-                    if (result - (number * (int)Math.Pow(10, bogie)) < 0) //проверка на отрицательное число
+                    else if (str == DellIterationsConst) //сбросить количество операций
                     {
-                        MessageBox.Show("Звонок!", "Ошибка!");
-                        return;
+                       DellIterations();
                     }
-                    result -= (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
-                    long temp = result;
-                    for (int i = 0; i < 13; i++) //запись результата в ячейки
+                    else if (str == ReferenceONConst) //вывести справку на экран
                     {
-                        if ((temp / (long)Math.Pow(10, 13)) % 10 > 0) //проверка на выход числа за пределы ячеек
-                        {
-                            MessageBox.Show("Звонок!", "Ошибка!");
-                            break;
-                        }
-                        results[i].Content = (temp / (long)Math.Pow(10, i)) % 10; //отделяем часть числа и записываем в соответствующий лейбл
+                        popUp.IsOpen = !popUp.IsOpen;
                     }
-                    iterationsValue[bogie] -= 1; //уменьшаем число операций в массиве
-                    iterations[bogie].Content = Math.Abs(iterationsValue[bogie]); //передаем количество операций в лейбл
-                }
-                else if (str.Length == 3) //выставить каретку на значение str[2]
-                {
-                    bogie = int.Parse(str.Substring(2, 1)) - 1; //получаем на какое значение выставлена каретка
-                    switch (bogie) //0 - крайнее левое положение, 7 - крайнее правое
+                    else if (str == ReferenceOFFConst) //закрыть справку
                     {
-                        case 0: BogLRX(-8); break;
-                        case 1: BogLRX(-6); break;
-                        case 2: BogLRX(-4); break;
-                        case 3: BogLRX(-2); break;
-                        case 4: BogLRX(0); break;
-                        case 5: BogLRX(2); break;
-                        case 6: BogLRX(4); break;
-                        case 7: BogLRX(6); break;
+                        popUp.IsOpen = !popUp.IsOpen;
+                    }
+                    if (str == HandDetectedConst) //меняем цвет датчика на зелёный цвет
+                    {
+                        circleHandIndicator.Fill = new SolidColorBrush(Colors.Green);
+                    }
+                    if (str == HandUnDetectedConst) //меняем цвет датчика на красный цвет
+                    {
+                        circleHandIndicator.Fill = new SolidColorBrush(Colors.Red);
                     }
                 }
-                else if (str == "сбросил результаты") //сбросить результаты
+                catch (Exception e)
                 {
-                    for (int i = 0; i < results.Length; i++) //обнуляем результат вычислений
-                    {
-                        results[i].Content = 0;
-                        result = 0;
-                    }
-                    for (int j = 0; j < 18; j++) //анимация правого барашка
-                    {
-                        Vector3D axis = new Vector3D(1, 0, 0); //вращение по X
-                        Matrix3D matrix = rc3D.Content.Transform.Value; //получаем матрицу 3D модели
-                        matrix.RotateAt(new Quaternion(axis, -20), RCloAtPoint); //вращаем матрицу ((вектор, радианы), центр вращения)
-                        rc3D.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
-                        await Task.Delay(75);
-                    }
+                    MessageBox.Show(e.Message, "Ошибка!");
+                    return;
                 }
-                else if (str == "сбросил обороты") //сбросить количество операций
-                {
-                    for (int i = 0; i < iterations.Length; i++) //обнуляем количество операций
-                    {
-                        iterations[i].Content = 0;
-                        iterationsValue[i] = 0;
-                    }
-                    for (int j = 0; j < 18; j++) //анимация левого барашка
-                    {
-                        Vector3D axis = new Vector3D(1, 0, 0);
-                        Matrix3D matrix = lc3D.Content.Transform.Value; //получаем матрицу 3D модели
-                        matrix.RotateAt(new Quaternion(axis, -20), LCloAtPoint); //вращаем матрицу ((вектор, радианы), центр вращения)
-                        lc3D.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
-                        await Task.Delay(75);
-                    }
-                }
-                else if (str == "Справка") //вывести справку на экран
-                {
-                    popUp.IsOpen = !popUp.IsOpen;
-                }
-                else if (str == "Сброс") //закрыть справку
-                {
-                    popUp.IsOpen = !popUp.IsOpen;
-                }
-                if (str == "Рука обнаружена") //меняем цвет датчика на зелёный цвет
-                    circleHandIndicator.Fill = new SolidColorBrush(Colors.Green);
-                if (str == "Рука не обнаружена") //меняем цвет датчика на красный цвет
-                    circleHandIndicator.Fill = new SolidColorBrush(Colors.Red);
-
             });
+        }
+
+        async void DellResult()
+        {
+            for (int i = 0; i < results.Length; i++) //обнуляем результат вычислений
+            {
+                results[i].Content = 0;
+                result = 0;
+            }
+            for (int j = 0; j < 18; j++) //анимация правого барашка
+            {
+                Vector3D axis = new Vector3D(1, 0, 0); //вращение по X
+                Matrix3D matrix = rc3D.Content.Transform.Value; //получаем матрицу 3D модели
+                matrix.RotateAt(new Quaternion(axis, -20), RCloAtPoint); //вращаем матрицу ((вектор, радианы), центр вращения)
+                rc3D.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
+                await Task.Delay(75);
+            }
+        }
+
+        async void DellIterations()
+        {
+            for (int i = 0; i < iterations.Length; i++) //обнуляем количество операций
+            {
+                iterations[i].Content = 0;
+                iterationsValue[i] = 0;
+            }
+            for (int j = 0; j < 18; j++) //анимация левого барашка
+            {
+                Vector3D axis = new Vector3D(1, 0, 0);
+                Matrix3D matrix = lc3D.Content.Transform.Value; //получаем матрицу 3D модели
+                matrix.RotateAt(new Quaternion(axis, -20), LCloAtPoint); //вращаем матрицу ((вектор, радианы), центр вращения)
+                lc3D.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
+                await Task.Delay(75);
+            }
         }
 
         void HandleRot(int angle)
