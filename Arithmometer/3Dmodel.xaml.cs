@@ -207,9 +207,9 @@ namespace Arithmometer
             device.Content.Transform = new MatrixTransform3D(matrix); //присваиваем 3D модели новую матрицу
         }
 
-        void LeversRotation(ModelVisual3D device, int n) //сдвигаем рычажок
+        void LeversRotation(ModelVisual3D device, int n) //сдвигаем рычажок вверх/вниз
         {
-            switch (n) //0 - крйний левый рычажок, 8 - крайний правый рычажок
+            switch (n) //0 - 9
             {
                 case 0: LR(device, 0, 0); break;
                 case 1: LR(device, 3, 1); break;
