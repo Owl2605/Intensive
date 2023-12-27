@@ -286,7 +286,7 @@ namespace Arithmometer
         {
             Iterations9Check();//проверка, что ячейка счетчика операций не выйдет за пределы 9
             NumberCount(); //подсчет числа выставленного на рычажках
-            result += (number * (int)Math.Pow(10, bogie)); //подсчет резльтата, bogie - поправка на каретку
+            result += (number * (int)Math.Pow(10, bogie)); //подсчет результата, bogie - поправка на каретку
             ResultPosition14Check(); //проверка на выход числа за пределы ячеек результата
             RoundUp(); //анимация крутим ручку вперед
             ResultContent(); //запись результата в ячейки
@@ -311,14 +311,14 @@ namespace Arithmometer
         {
             if (result - (number * (long)Math.Pow(10, bogie)) < 0) 
             {
-                throw new ArgumentException("Звонок!\nАрифмометр не работает с отрицательными числми.");
+                throw new ArgumentException("Звонок!\nАрифмометр не работает с отрицательными числами.");
             }
         }
 
         void BogiePosition(String str) //выставление каретки
         {
             bogie = int.Parse(str.Substring(2, 1)) - 1; //получаем на какое значение выставлена каретка
-            BogLRX((2.3 * bogie) - 8); //0 - крайнее левое положение (каордината -8), 7 - крайнее правое (каордината 6)
+            BogLRX((2.3 * bogie) - 8); //0 - крайнее левое положение (координата -8), 7 - крайнее правое (координата 6)
         }
 
         async void doIt(string str)
